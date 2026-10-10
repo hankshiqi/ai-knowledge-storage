@@ -30,6 +30,7 @@ LOG_FILE_RETENTION = os.getenv("LOG_FILE_RETENTION", "7 days")
 
 # -------------------------- 第三步：定义日志路径（自动推导项目根） --------------------------
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
+#==PROJECT_ROOT = Path(__file__).resolve().parents[3]
 LOG_DIR = PROJECT_ROOT / "logs"
 LOG_FILE_NAME = "app_{time:YYYYMMDD}.log"
 LOG_FILE_PATH = LOG_DIR / LOG_FILE_NAME

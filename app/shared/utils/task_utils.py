@@ -55,12 +55,12 @@ _NODE_NAME_TO_CN: Dict[str, str] = {
 
 def _ensure_task(task_id: str) -> None:
     """确保 task_id 对应的数据结构已初始化。"""
-    if task_id not in _tasks_running_list:
-        _tasks_running_list[task_id] = []
+    if task_id not in _tasks_running_list: 
+        _tasks_running_list[task_id] = []#运行中字典
     if task_id not in _tasks_done_list:
-        _tasks_done_list[task_id] = []
+        _tasks_done_list[task_id] = []#已完成
     if task_id not in _tasks_result:
-        _tasks_result[task_id] = {}
+        _tasks_result[task_id] = {}#结果
 
 
 def _to_cn(node_name: str) -> str:
