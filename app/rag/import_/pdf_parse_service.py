@@ -1,14 +1,17 @@
+from hashlib import md5
 from itertools import zip_longest
 from pathlib import Path
+import shutil
 import time
 
 import requests
+from sqlalchemy import exists
 from torch import Value
 from app import infra
 from app.infra.config.providers import infra_config
 from app.process.import_.agent.state import ImportGraphState
-from app.shared.runtime import logger
-
+from app.shared.runtime.logger import logger, step_log
+@step_log("validate_pdf_paths")
 def validate_pdf_paths(state:ImportGraphState) -> tuple[Path,Path]:
     """
     校验 PDF 路径,并完成文件存在性检验和文件夹的创建
@@ -40,6 +43,7 @@ def validate_pdf_paths(state:ImportGraphState) -> tuple[Path,Path]:
     return (pdf_path_obj,local_dir_obj) 
 
 #向miniU上传文件并且获取解析结果
+@step_log("upload_pdf_and_poll")
 def upload_pdf_and_poll(pdf_path_obj:Path)->str:
     """
     向miniU上传文件并且获取解析结果
@@ -125,7 +129,11 @@ def upload_pdf_and_poll(pdf_path_obj:Path)->str:
             extract_result = extract_results[0]
             state = extract_result.get("state")
             if state == "done":
-                return extract_result.get("full_zip_url")
+                zip_url=extract_result.get("full_zip_url")
+                if not zip_url:
+                    logger.error(f"解析完成,但是没有zip_url,业务中断")
+                    raise RuntimeError(f"解析完成,但是没有zip_url,业务中断")
+                return zip_url
             elif state == "failed":
                 logger.error(f"解析失败,业务中断,错误信息:{extract_result.get('msg')}")
                 raise RuntimeError(f"解析失败,业务中断,错误信息:{extract_result.get('msg')}")
@@ -137,7 +145,65 @@ def upload_pdf_and_poll(pdf_path_obj:Path)->str:
                 logger.warning(f"正在格式转换,等待重试")
                 time.sleep(infra_config.mineru.poll_interval_seconds)
                 continue
-    
+#根据zip_url下载到local_dir当中
+    return new_md_path
+@step_log("download_and_extract_markdown")
+def download_and_extract_markdown(zip_url:str,local_dir_obj:Path,file_name:str)->Path:
+    """进行下载解压，重命名，最终返回md_path_obj
+
+    Args:
+        zip_url (_type_): _description_
+        local_dir_obj (_type_): _description_
+        pdf_path_obj_name (_type_): _description_
+
+    Returns:
+        Path: _description_
+    """
+    #1.下载zip
+    response= requests.get(url=zip_url,timeout=(3,60))
+    if response.status_code != 200:
+        logger.error(f"下载zip失败,网络问题,状态码:{response.status_code}")
+        raise RuntimeError(f"下载zip失败,网络问题,状态码:{response.status_code}")
+    zip_path_obj:Path = local_dir_obj / f"{file_name}.zip"
+    zip_path_obj.write_bytes(response.content)
+    #2.解压
+    #创建解压后的文件夹
+    zip_extract_dir = local_dir_obj / f"{file_name}"
+    if zip_extract_dir.exists():
+        shutil.rmtree(zip_extract_dir) #这里进行递归清理
+    zip_extract_dir.mkdir(parents=True,exist_ok=True)
+    shutil.unpack_archive(zip_path_obj,zip_extract_dir) #支持所有格式的压缩包
+    #递归查询当前文件夹下面的md文件，并且拿到对应的list
+    md_path_list = list(zip_extract_dir.rglob("*.md"))
+    if len(md_path_list) ==0:
+        logger.error(f"下载zip解压后没有md文件,业务中断")
+        raise RuntimeError(f"下载zip解压后没有md文件,业务中断")
+    md_path_obj=None
+    #查是不是等于filename 如果是就可以直接返回
+    for sig_md_path in md_path_list:
+        if sig_md_path.name == f"{file_name}.md":
+            logger.info(f"解压后名称为{file_name}.md,与原来文件名相同，直接返回")
+            md_path_obj = sig_md_path
+            return md_path_obj
+    #查看是否等于full
+    for sig_md_path in md_path_list:
+        if sig_md_path.name == "full.md":
+            md_path_obj = sig_md_path
+            break
+    if not md_path_obj:
+        md_path_obj = md_path_list[0]
+    #3.重命名
+    """Python 执行这行代码时，它会把 "财务报告.md" 当作一个相对于当前运行目录（D:\Project）的路径。它的实际行为是：
+
+    把 D:\Project\output\财务报告\full.md 剪切。
+
+    粘贴到 D:\Project\财务报告.md。
+    所以不能直接rename
+    """
+    logger.info(f"触发了md的重命名操作，原名称为{md_path_obj}.md，重命名为{file_name}.md")
+    new_md_path =md_path_obj.rename(md_path_obj.parent / f"{file_name}.md") #注意这里修改以后会返回一个新的path对象
+    return new_md_path
+@step_log("parse_pdf_to_markdown")
 def parse_pdf_to_markdown(state: ImportGraphState) -> ImportGraphState:
     """
     PDF 解析服务： 
@@ -149,5 +215,7 @@ def parse_pdf_to_markdown(state: ImportGraphState) -> ImportGraphState:
     #1.获取并且校验参数
     pdf_path_obj,local_dir_obj=validate_pdf_paths(state)
     zip_url=upload_pdf_and_poll(pdf_path_obj)
-    
+    md_path_obj:Path=download_and_extract_markdown(zip_url,local_dir_obj,pdf_path_obj.stem)
+    #更新md_path
+    state['md_path'] = str(md_path_obj)
     return state
