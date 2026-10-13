@@ -1,0 +1,18 @@
+services:
+  # 容器：MinIO服务容器
+  minio:
+    image: pgsty/silo
+    container_name: minio
+    restart: always # 自动重启，电脑重启后也会自动起
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: Minio@123456
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+
+volumes:
+  minio_data:
