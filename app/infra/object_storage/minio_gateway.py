@@ -1,5 +1,9 @@
+from minio import Minio
+
 from app.infra.config.providers import infra_config
 import urllib.parse
+
+from app.shared.clients.minio_utils import get_minio_client
 
 class MinioGateway:
     @property
@@ -12,7 +16,8 @@ class MinioGateway:
         """获取 MinIO 中存放图片的目录路径（从全局配置读取）"""
         return infra_config.minio.minio_img_dir
 
-
+    def client(self) -> Minio:
+        return get_minio_client()
 
     def build_image_url(self, stem: str, object_name: str) -> str:
         """构建图片 URL"""

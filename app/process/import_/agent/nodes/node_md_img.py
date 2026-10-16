@@ -22,7 +22,7 @@ if __name__ == "__main__":
     from app.shared.utils.path_util import PROJECT_ROOT
     logger.info(f"本地测试 - 项目根目录：{PROJECT_ROOT}")
 
-    test_md_name = os.path.join(r"output\hak180使用说明书", "hak180使用说明书.md")
+    test_md_name = os.path.join(r"output\hak180产品安全手册", "hak180产品安全手册.md")
     test_md_path = os.path.join(PROJECT_ROOT, test_md_name)
 
     if not os.path.exists(test_md_path):
