@@ -1,16 +1,12 @@
-from hashlib import md5
-from itertools import zip_longest
 from pathlib import Path
 import shutil
 import time
 
 import requests
-from sqlalchemy import exists
-from torch import Value
-from app import infra
+
 from app.infra.config.providers import infra_config
 from app.process.import_.agent.state import ImportGraphState
-from app.shared.runtime.logger import logger, step_log
+from app.shared.runtime.logger import PROJECT_ROOT, logger, step_log
 @step_log("validate_pdf_paths")
 def validate_pdf_paths(state:ImportGraphState) -> tuple[Path,Path]:
     """
@@ -26,7 +22,7 @@ def validate_pdf_paths(state:ImportGraphState) -> tuple[Path,Path]:
     #3.校验local_dir是否存在，不存在则放在默认的路径下面
     if not local_dir:
         logger.warning(f"local_dir为空,放在默认值:根目录/output下")
-        local_dir:Path=PROJECT_ROOT / PDF_PARSE_SERVICE_LOCAL_DIR
+        local_dir:Path=PROJECT_ROOT / "output"
         state["local_dir"]=str(local_dir)
     #4.将pdf_path以及local_dir转成path
     pdf_path_obj = Path(pdf_path)
@@ -214,6 +210,23 @@ def parse_pdf_to_markdown(state: ImportGraphState) -> ImportGraphState:
     """
     #1.获取并且校验参数
     pdf_path_obj,local_dir_obj=validate_pdf_paths(state)
+
+    if not state.get("force_reparse", False):
+        existing_md_paths = [
+            Path(state["md_path"]) if state.get("md_path") else None,
+            local_dir_obj / pdf_path_obj.stem / f"{pdf_path_obj.stem}.md",
+            local_dir_obj / f"{pdf_path_obj.stem}.md",
+        ]
+        for existing_md_path in existing_md_paths:
+            if (
+                existing_md_path is not None
+                and existing_md_path.is_file()
+                and existing_md_path.stat().st_size > 0
+            ):
+                state["md_path"] = str(existing_md_path.resolve())
+                logger.info(f"发现已有 Markdown，跳过 MinerU 解析并复用：{existing_md_path}")
+                return state
+
     zip_url=upload_pdf_and_poll(pdf_path_obj)
     md_path_obj:Path=download_and_extract_markdown(zip_url,local_dir_obj,pdf_path_obj.stem)
     #更新md_path

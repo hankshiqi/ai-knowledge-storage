@@ -6,3 +6,8 @@ CHUNK_SIZE = 600
 CHUNK_OVERLAP = 50
 #文本块最小长度
 CHUNK_MIN_SIZE=400
+
+#声明常量，切块的截取数量，默认:10
+CHUNKS_SPLIT_TOP_NUMBER = 10
+#chunks处理的batch_size
+CHUNKS_BATCH_SIZE = 6

@@ -1,18 +1,92 @@
 services:
-  # 容器：MinIO服务容器
-  minio:
+  etcd:
+    container_name: milvus-etcd
+    image: quay.io/coreos/etcd:v3.5.5
+    environment:
+      - ETCD_AUTO_COMPACTION_MODE=revision
+      - ETCD_AUTO_COMPACTION_RETENTION=1000
+      - ETCD_QUOTA_BACKEND_BYTES=4294967296
+      - ETCD_SNAPSHOT_COUNT=50000
+    volumes:
+      - milvus_etcd_data:/etcd
+    command: etcd -advertise-client-urls=http://127.0.0.1:2379 -listen-client-urls http://0.0.0.0:2379 --data-dir /etcd
+    healthcheck:
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ==========================================
+  # 1. Milvus 专属的 MinIO (复用 pgsty/silo，使用 9010/9011 端口)
+  # ==========================================
+  milvus-minio:
+    container_name: milvus-minio
     image: pgsty/silo
-    container_name: minio
-    restart: always # 自动重启，电脑重启后也会自动起
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
     ports:
-      - "9000:9000"
-      - "9001:9001"
+      - "9010:9000"  # 宿主机9010 -> 容器9000 (API数据端口)
+      - "9011:9001"  # 宿主机9011 -> 容器9001 (控制台端口)
+    volumes:
+      - milvus_minio_data:/minio_data
+    command: server /minio_data --console-address ":9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+
+  # ==========================================
+  # 2. 你自己的业务 MinIO (使用主端口 9000/9001)
+  # ==========================================
+  my-minio:
+    image: pgsty/silo
+    container_name: my-minio
+    restart: always
+    ports:
+      - "9000:9000"  # 你的业务系统通过这个端口上传文件
+      - "9001:9001"  # 你的业务控制台
     environment:
       MINIO_ROOT_USER: minioadmin
       MINIO_ROOT_PASSWORD: Minio@123456
     volumes:
-      - minio_data:/data
+      - my_minio_data:/data
     command: server /data --console-address ":9001"
 
+  # ==========================================
+  # 3. Milvus 向量数据库 (连自己专属的 MinIO)
+  # ==========================================
+  standalone:
+    container_name: milvus-standalone
+    image: milvusdb/milvus:v2.4.11
+    command: ["milvus", "run", "standalone"]
+    security_opt:
+    - seccomp:unconfined
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: milvus-minio:9000
+    volumes:
+      - milvus_data:/var/lib/milvus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 30s
+      start_period: 90s
+      timeout: 20s
+      retries: 3
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    depends_on:
+      - "etcd"
+      - "milvus-minio"
+
 volumes:
-  minio_data:
+  milvus_etcd_data:
+  milvus_minio_data:
+  milvus_data:
+  my_minio_data:
+
+networks:
+  default:
+    name: milvus-network

@@ -1,15 +1,13 @@
-"""
-工具模块，负责提供 embedding 相关的辅助能力。
-"""
-from pymilvus.model.hybrid import BGEM3EmbeddingFunction
+"""Embedding helpers backed by an OpenAI-compatible embedding API."""
+
+from math import sqrt
 
 from app.shared.config.embedding_config import embedding_config
 from app.shared.runtime.logger import logger
-
+from pymilvus.model.hybrid import BGEM3EmbeddingFunction
 _DEFAULT_EMBEDDING_MODEL = "BAAI/bge-m3"
 _DEFAULT_EMBEDDING_DEVICE = "cpu"
 _bge_m3_ef: BGEM3EmbeddingFunction | None = None
-
 
 def get_bge_m3_ef() -> BGEM3EmbeddingFunction:
     """
@@ -116,5 +114,3 @@ def generate_embeddings(texts: list[str]) -> dict[str, list]:
     except Exception as e:
         logger.error(f"文本向量生成失败：{str(e)}", exc_info=True)
         raise  # 不吞异常，向上传递让调用方做重试/降级处理
-
-
