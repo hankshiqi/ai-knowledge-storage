@@ -1,0 +1,4977 @@
+[
+    [
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.667,
+                0.286,
+                0.91,
+                0.334
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "footer",
+            "bbox": [
+                0.802,
+                0.858,
+                0.905,
+                0.933
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.665,
+                0.285,
+                0.913,
+                0.336
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.794,
+                0.853,
+                0.915,
+                0.919
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.803,
+                0.918,
+                0.906,
+                0.934
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.058,
+                0.043,
+                0.16,
+                0.077
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "index",
+            "bbox": [
+                0.129,
+                0.098,
+                0.941,
+                0.329
+            ],
+            "angle": 0,
+            "content": "了解计算机\n外观介绍 1\n键盘 3\n开启和关闭计算机 4\nF10 一键恢复出厂 4\n获取精彩功能 4\n安全信息\n个人信息和数据安全\n法律声明"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.948,
+                0.965,
+                0.957,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.052,
+                0.042,
+                0.164,
+                0.081
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.944,
+                0.966,
+                0.96,
+                0.984
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "doc_title",
+            "bbox": [
+                0.057,
+                0.043,
+                0.278,
+                0.078
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.112,
+                0.213,
+                0.14
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.15,
+                0.259,
+                0.17
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.218,
+                0.194,
+                0.799,
+                0.453
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.071,
+                0.461,
+                0.941,
+                0.942
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>1</td><td>电源键·关机状态下,短按电源键,可开启计算机。·开机状态下,长按电源键10秒以上,可强制关闭计算机。</td></tr><tr><td>2</td><td>耳麦接口连接耳机。</td></tr><tr><td>3</td><td>USB-A (USB 3.2 Gen 1) 接口 x 2连接手机、U盘等外接设备传输数据。</td></tr><tr><td>4</td><td>USB-A (USB 3.2 Gen 2) 接口 x 2连接手机、U盘等外接设备传输数据。</td></tr><tr><td>5</td><td>麦克风输入接口连接麦克风,可将麦克风接收到的声音输入计算机。</td></tr><tr><td>6</td><td>音频输出接口连接音箱等外部设备,将计算机内的音频信号传送至外部设备。</td></tr><tr><td>7</td><td>音频输入接口连接外部音频设备,将外部设备声音传送至计算机。</td></tr><tr><td>8</td><td>HDMI接口 x 2高清晰度多媒体接口,连接显示设备。部分型号只有一个HDMI接口,具体接口请以实物为准。</td></tr></table>"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.942,
+                0.965,
+                0.956,
+                0.98
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.056,
+                0.042,
+                0.279,
+                0.08
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.07,
+                0.11,
+                0.212,
+                0.143
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.152,
+                0.256,
+                0.169
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.941,
+                0.967,
+                0.956,
+                0.983
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.86,
+                0.021,
+                0.957,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.072,
+                0.04,
+                0.941,
+                0.474
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>9</td><td>串口连接调制解调器、串行打印机、仿真器或有串口的设备。</td></tr><tr><td>10</td><td>USB-A (USB 3.2 Gen 1) 接口 x 2连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>11</td><td>挡板i 挡板可拆卸,拆卸之后可增添新接口,具体接口请以实物为准。</td></tr><tr><td>12</td><td>电源接口连接计算机电源线。</td></tr><tr><td>13</td><td>RJ45 接口连接网线。i 不同型号,RJ45 接口的位置不同,请以实物为准。</td></tr><tr><td>14</td><td>USB-A (USB 2.0) 接口 x 4连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>15</td><td>DP 接口 x 2接入 DP 线缆,连接显示设备。i 部分型号只有一个 DP 接口,具体接口请以实物为准。</td></tr></table>",
+            "cell_merge": [
+                0,
+                0
+            ]
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.5,
+                0.26,
+                0.519
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.071,
+                0.542,
+                0.941,
+                0.964
+            ],
+            "angle": 0,
+            "content": "<table><tr><td colspan=\"2\"><img src=\"data:image/jpeg;base64,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4HOPx9683oA+gtK1CPVdLtr6LhJkDY9D3H4HIq5XKfDsufCMIbOBK4X6Z/xzXV0gCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA434iaHJqWkR3tuhaazJLKOpQ9fywD+deV2N5Np99BeQECWFw656cevtX0NXEa98OrTUJnudOlFpM3LRlcxsf/AGX/ADxTQGC2u+E7rVE1y4tb9L5SHa3TaY2cdD/L0+lctrerS63q89/KoQyEbUBztUDAH5CuhPw013zNu+z2/wB/zTj+Wa6PQvhva2Uq3GqTLdyLyIlGIwffu36UAO+G+hyWOnS6lcIVkusCMHqIx3/E/wAhXO/EXQ5LLWP7TjQm2usbiP4ZAOR+OM/nXrQAAwOBUN3aW9/ayW11EssMgwyN0NIDwPSns4tUtpL8O1qjhpFRclgOcY9+lXfFGtf29rk14oYQ4CRK3UKP/r5P411mq/DCTzWfSrxNhORFcZBX6MAc/lWbB8M9akkxLLaRJ3YuWP4ACmBx8MMlxOkMKM8sjBVVRySe1e7+HdJGi6Fa2JIMiLmQju55P+FUPDng2w8PnzgTcXmMec4xt/3R2/nXR0MDx7x/ocmm6696iH7LeMXDDoH/AIgfx5/H2qr4c8QWlhYXmlanbyTafd8sYj86N6jP0H5V7HfWFtqVnJa3kKywuOVP8x6GvO9T+F84kZ9LvY2jPIjuMgj2yAc/kKAM631zQPDttdNoSXs97cRmMS3O0CMH0x+H5VylrazXt1FbW8ZkmlYKijua663+GesySATzWsKdzvLH8AB/Wu78O+EdP8PKZI8z3bDDTuOcegHYUAaGi6aukaNa2CkHyUwxHdjyx/Mmr9FFIAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKA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3dnnKvGMuo9GA/mOPpXKlGV9jKQwOMEc0wEru/hhp7y6rc6gV/dQxeWD6sxH9AfzFYmieDtW1qVSIGt7Y/enmUgY9h1NewaTpVtounRWVopEadSerHuT70MC9RRRSAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5nxF/yM/hj/r4l/8AQK6auZ8Rf8jP4Y/6+Jf/AECgDpq5nUP+Qtc/9fNh/wCjK6auZ1D/AJC1z/182H/oygC14kvJLeKNFMgj8uWeQRsVaQRruCAjkZOOnYGsq+Fxpsayrc2vmNDLeK1rH5Q3ooY7gCQ6MOCTzyDn06XU7SK6td0jyRPAfNjli+8hAPIzkHgkYPUGud0jT7O9u7qFZYTFBKElS3tFgE2ArDcdxLL83QYBweMHkAv+I714rWAASCMxyTyIjFWkEabhHkcjJxnHYGqGpG6s0WR7q3eX7PLdxS26eXsdACc8ncjcA59vw6LU7WG6tD5zOhiPmpJGcMjAdRnjpkc8EEg8Vhafotq84jMitGw3vHDbJEHweBIRyRnnAwD6YoAu6/dyLaWyASIkoeSVY2KuypGX2AjkEkAZHOM1lXYubSGK4FzbCW5ie4WS3QxkMibgWOT5iY+U7vUc11F9Yx38Ko7vG6OHjljOGjYdxn6kc8EEiub0vSrW9lnQyxCMSSRzRw2awmXY5Uh2BOVJGcDbnuOooA1nk87XNJl2ld9rO2D2z5Va9Zl1/wAjHpv/AF73H84606ACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAzI/wDkabn/AK8ov/Q5K06zI/8Akabn/ryi/wDQ5K06AOZ8Df8AIEuf+v6f/wBCrpq5nwN/yBLn/r+n/wDQq6agAooooAKKKKACiiigAooooAKKKKACiiigAooooA5nW/8AkefCv/b3/wCihXTVzOt/8jz4V/7e/wD0UK6agAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5nwN/wAgi8/6/wCf/wBCrpq5nwN/yCLz/r/n/wDQqAOmooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKxfFOur4f0WS6ADTufLhU9Cx7n2HWgCbV/EOmaGgN9cqjkZWNRudv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ukX/AKMWtOszxB/yBpf+ukX/AKMWgDTooooA5nwN/wAgS5/6/p//AEKumrmfA3/IEuf+v6f/ANCrpqACiiigAooooAKKKKAOB+JmjSXFnBqsKljbgxzY/uE8H8Dn865bwjrNlpMGrJeSFDcW/lx4UnJwfTp1r2V0WRGR1DIwwysMgj0rzzXPhp5kzT6NMiBjn7PKTgf7rf0P50wOP0RNAlini1mW6gkYgxTQjIUc5yOc547dq34NW8PeGdMvk0i6nv727j8ve8ZRUHPqB6+/4VnD4f8AiQybTZIB/fM6Y/nn9K6nw/8ADeO1mS51eVJ3U5WBPuZ/2iev0/nQBc+HWjSadosl5OpWW8IZQeyD7v55J/KuyoAwMDpRSAKKKKAOZ1v/AJHnwr/29/8AooV01czrf/I8+Ff+3v8A9FCumoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACuZ8Df8AIIvP+v8An/8AQq6auZ8Df8gi8/6/5/8A0KgDpqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArmfEX/Iz+GP+viX/ANArpq5nxF/yM/hj/r4l/wDQKAOmrMs/+Rg1P/rnB/Jq06zLP/kYNT/65wfyagDTooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACq2oWYv7Ca2LlC4+VwM7WByD+BAqzRQBS0y9a8gZZkEd3A3lzxj+FvUf7JGCD6GrtZkYx4ouccbrOLPvh5P8a06AOZ8Df8gS5/6/p//Qq6auZ8Df8AIEuf+v6f/wBCrpqACiiigAooooAKKKKACiiigAooooAKKKKACiiigDmdb/5Hnwr/ANvf/ooV01czrf8AyPPhX/t7/wDRQrpqACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArmfA3/IIvP+v+f/0KumrmfA3/ACCLz/r/AJ//AEKgDpqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArmfEX/Iz+GP+viX/wBArpq5nxF/yM/hj/r4l/8AQKAOmrMs/wDkYNT/AOucH8mrTrMs/wDkYNT/AOucH8moA06KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAzI/wDkaLj2sov/AEOT/CtOsyL/AJGi89rKD/0OWtOgDmfA3/IEuf8Ar+n/APQq6auZ8Df8gS5/6/p//Qq6agAooooAKKKKACiiigAooooAKKKKACiiigAooooA5nW/+R58K/8Ab3/6KFdNXM63/wAjz4V/7e//AEUK6agAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAK5nwN/yCLz/AK/5/wD0KumrmfA3/IIvP+v+f/0KgDpqKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArmfEX/ACM/hj/r4l/9Arpq5nxF/wAjP4Y/6+Jf/QKAOmrMs/8AkP6n/uQ/yaoNd11dLVLa2Tz9Qm4ihAzjPcj+nfHYAkQaX4aCwvNqsslxeTtvkxKwVT6cEZPv7YGAAKAOhorM/wCEf0z/AJ4P/wB/n/xo/wCEf0z/AJ4P/wB/n/xoA06KzP8AhH9M/wCeD/8Af5/8aP8AhH9M/wCeD/8Af5/8aANOisz/AIR/TP8Ang//AH+f/Gj/AIR/TP8Ang//AH+f/GgDTorM/wCEf0z/AJ4P/wB/n/xo/wCEf0z/AJ4P/wB/n/xoA06KzP8AhH9M/wCeD/8Af5/8aP8AhH9M/wCeD/8Af5/8aANOisz/AIR/TP8Ang//AH+f/Gj/AIR/TP8Ang//AH+f/GgDTorM/wCEf0z/AJ4P/wB/n/xo/wCEf0z/AJ4P/wB/n/xoA06KzP8AhH9M/wCeD/8Af5/8aP8AhH9M/wCeD/8Af5/8aANOisz/AIR/TP8Ang//AH+f/Gj/AIR/TP8Ang//AH+f/GgDTorM/wCEf0z/AJ4P/wB/n/xo/wCEf0z/AJ4P/wB/n/xoA06KzP8AhH9M/wCeD/8Af5/8aP8AhH9M/wCeD/8Af5/8aANOisz/AIR/TP8Ang//AH+f/Gj/AIR/TP8Ang//AH+f/GgBIyF8U3AJwXsoto9dryZ/LcPzrUrntS8MqUjuNJlktb6AlomMjMreoIJPX1/mOKs6Frn9qLJb3MXkX8HE0J/mPb+XHUEEgFHwN/yBLn/r+n/9Crpq5nwN/wAgS5/6/p//AEKumoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAOW8VSDT9b0DWZlb7HaSSxzuBnZ5iBQx9sitYeI9DYAjWdPwf+nlP8a0XRZEKOoZWGCrDIIrNPhrQicnRtP8A/AZP8KAHf8JFon/QZ0//AMCk/wAaP+Ei0T/oM6f/AOBSf41z2qeDPK1T7fo9jpLq6BJLO7gHl5H8S4HBqTRvBcS3s1/rFlpjSSII47W2tx5MYznOCOW96AN3/hItE/6DOn/+BSf40f8ACRaJ/wBBnT//AAKT/Gm/8I1oX/QG0/8A8Bk/wo/4RrQv+gNp/wD4DJ/hQA7/AISLRP8AoM6f/wCBSf40f8JFon/QZ0//AMCk/wAab/wjWhf9AbT/APwGT/Cj/hGtC/6A2n/+Ayf4UAO/4SLRP+gzp/8A4FJ/jR/wkWif9BnT/wDwKT/Gm/8ACNaF/wBAbT//AAGT/Cj/AIRrQv8AoDaf/wCAyf4UAO/4SLRP+gzp/wD4FJ/jR/wkWif9BnT/APwKT/Gm/wDCNaF/0BtP/wDAZP8ACj/hGtC/6A2n/wDgMn+FADv+Ei0T/oM6f/4FJ/jR/wAJFon/AEGdP/8AApP8ab/wjWhf9AbT/wDwGT/Cj/hGtC/6A2n/APgMn+FADv8AhItE/wCgzp//AIFJ/jR/wkWif9BnT/8AwKT/ABpv/CNaF/0BtP8A/AZP8KP+Ea0L/oDaf/4DJ/hQA7/hItE/6DOn/wDgUn+NH/CRaJ/0GdP/APApP8ab/wAI1oX/AEBtP/8AAZP8KP8AhGtC/wCgNp//AIDJ/hQA7/hItE/6DOn/APgUn+NH/CRaJ/0GdP8A/ApP8ab/AMI1oX/QG0//AMBk/wAKP+Ea0L/oDaf/AOAyf4UAO/4SLRP+gzp//gUn+NH/AAkWif8AQZ0//wACk/xpv/CNaF/0BtP/APAZP8KP+Ea0L/oDaf8A+Ayf4UAO/wCEi0T/AKDOn/8AgUn+NH/CRaJ/0GdP/wDApP8AGm/8I1oX/QG0/wD8Bk/wo/4RrQv+gNp//gMn+FADv+Ei0T/oM6f/AOBSf40f8JFon/QZ0/8A8Ck/xpv/AAjWhf8AQG0//wABk/wo/wCEa0L/AKA2n/8AgMn+FADv+Ei0T/oM6f8A+BSf40f8JFon/QZ0/wD8Ck/xrnNQ8GPbarLe6PY6RNDMoD2l7B8qEcZQgcZ7j/IsaJ4Lt4Z7m81ez02WefAWCC3Hkwgf3QR1Pc0Aa8/ijQreB5X1eyZVGSEnVmP0AOTVLwTBNF4e86aNojdTyXCow5Cs3Gfw5/GtGPw9osMiyR6RYI6nIZbdAQfyrSoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigArjvHiSxDTL5ZHhigkkR50BJh3oVV+OcA12NIyq6FHUMrDBBGQRQBwvhWfStONzd6nrWnzXryERSverI4iwMZJx83qcdAOnSum/wCEm0H/AKDNh/4EJ/jUn/CP6KTk6RYf+Ayf4Via14PjkvLe/wBHtNNjmiUo9tcW48mVT6gDgj1oA1/+Em0H/oM2H/gQn+NH/CTaD/0GbD/wIT/GsLTfCDz6qmoazZ6TGkSFYrSzgGwk9WfI5PoK6D/hHtF/6A+n/wDgMn+FADP+Em0H/oM2H/gQn+NH/CTaD/0GbD/wIT/Gn/8ACPaL/wBAfT//AAGT/Cj/AIR7Rf8AoD6f/wCAyf4UAM/4SbQf+gzYf+BCf40f8JNoP/QZsP8AwIT/ABp//CPaL/0B9P8A/AZP8KP+Ee0X/oD6f/4DJ/hQAz/hJtB/6DNh/wCBCf40f8JNoP8A0GbD/wACE/xp/wDwj2i/9AfT/wDwGT/Cj/hHtF/6A+n/APgMn+FADP8AhJtB/wCgzYf+BCf40f8ACTaD/wBBmw/8CE/xp/8Awj2i/wDQH0//AMBk/wAKP+Ee0X/oD6f/AOAyf4UAM/4SbQf+gzYf+BCf40f8JNoP/QZsP/AhP8af/wAI9ov/AEB9P/8AAZP8KP8AhHtF/wCgPp//AIDJ/hQAz/hJtB/6DNh/4EJ/jR/wk2g/9Bmw/wDAhP8AGn/8I9ov/QH0/wD8Bk/wo/4R7Rf+gPp//gMn+FADP+Em0H/oM2H/AIEJ/jR/wk2g/wDQZsP/AAIT/Gn/APCPaL/0B9P/APAZP8KP+Ee0X/oD6f8A+Ayf4UAM/wCEm0H/AKDNh/4EJ/jR/wAJNoP/AEGbD/wIT/Gn/wDCPaL/ANAfT/8AwGT/AAo/4R7Rf+gPp/8A4DJ/hQAz/hJtB/6DNh/4EJ/jR/wk2g/9Bmw/8CE/xp//AAj2i/8AQH0//wABk/wo/wCEe0X/AKA+n/8AgMn+FADP+Em0H/oM2H/gQn+NH/CTaD/0GbD/AMCE/wAaf/wj2i/9AfT/APwGT/Cj/hHtF/6A+n/+Ayf4UAM/4SbQf+gzYf8AgQn+NH/CTaD/ANBmw/8AAhP8af8A8I9ov/QH0/8A8Bk/wrD1fweP7Rj1HRrPSw4j8uS0urceS4zncMDhvf8AyQDZ/wCEm0H/AKDNh/4EJ/jXPf23pK+PBd/2lZi3az2eaJ1xvz0Jz6D9BU2leDy+ptqOs2elDEflxWdpAPKXn7zZHLVvf8I9ov8A0B9P/wDAZP8ACgDJ8BusmgzujBla9mII6Ebq6io4LeC1hWG3hjhiX7qRqFUfgKkoAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=\"/></td></tr><tr><td>1</td><td>电源键\n·关机状态下,短按电源键,可开启计算机。\n·开机状态下,长按电源键10秒以上,可强制关闭计算机。</td></tr><tr><td>2</td><td>耳麦接口\n连接耳机。</td></tr><tr><td>3</td><td>USB-A (USB 3.2 Gen 1) 接口 x 2\n连接手机、U盘等外接设备传输数据。</td></tr></table>"
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.862,
+                0.023,
+                0.955,
+                0.038
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.501,
+                0.256,
+                0.52
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.941,
+                0.967,
+                0.956,
+                0.984
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "table",
+            "bbox": [
+                0.074,
+                0.906,
+                0.941,
+                0.962
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>F1</td><td>降低屏幕亮度i 仅支持华为品牌显示器。</td></tr></table>",
+            "cell_merge": [
+                0,
+                0
+            ]
+        },
+        {
+            "type": "header",
+            "bbox": [
+                0.861,
+                0.021,
+                0.957,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.072,
+                0.04,
+                0.941,
+                0.764
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>4</td><td>USB-A (USB 3.2 Gen 2) 接口 x 2连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>5</td><td>USB-C (USB 2.0) 接口连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>6</td><td>麦克风输入接口连接麦克风,可将麦克风接收到的声音输入计算机。</td></tr><tr><td>7</td><td>音频输出接口连接音箱等外部设备,将计算机内的音频信号传送至外部设备。</td></tr><tr><td>8</td><td>音频输入接口连接外部音频设备,将外部设备声音传送至计算机。</td></tr><tr><td>9</td><td>HDMI 接口 x 2高清晰度多媒体接口,连接显示设备。</td></tr><tr><td>10</td><td>串口连接调制解调器、串行打印机、仿真器或有串口的设备。</td></tr><tr><td>11</td><td>USB-A (USB 3.2 Gen 1) 接口 x 2连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>12</td><td>挡板i 挡板可拆卸,拆卸之后可增添新接口,具体接口请以实物为准。</td></tr><tr><td>13</td><td>电源接口连接计算机电源线。</td></tr><tr><td>14</td><td>RJ45 接口连接网线。i 不同型号,RJ45 接口的位置不同,请以实物为准。</td></tr><tr><td>15</td><td>USB-A (USB 2.0) 接口 x 4连接手机、U 盘等外接设备传输数据。</td></tr><tr><td>16</td><td>DP 接口 x 2接入 DP 线缆,连接显示设备。</td></tr></table>"
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.072,
+                0.79,
+                0.146,
+                0.817
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.077,
+                0.825,
+                0.649,
+                0.845
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.072,
+                0.857,
+                0.22,
+                0.876
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.883,
+                0.836,
+                0.902
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.942,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.861,
+                0.022,
+                0.956,
+                0.038
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.068,
+                0.784,
+                0.148,
+                0.821
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.826,
+                0.648,
+                0.844
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.858,
+                0.216,
+                0.877
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.886,
+                0.833,
+                0.901
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.941,
+                0.966,
+                0.956,
+                0.98
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.861,
+                0.021,
+                0.957,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "table",
+            "bbox": [
+                0.073,
+                0.039,
+                0.941,
+                0.327
+            ],
+            "angle": 0,
+            "content": "<table><tr><td>F2</td><td>增强屏幕亮度仅支持华为品牌显示器。</td></tr><tr><td>F4</td><td>开启或关闭静音</td></tr><tr><td>F5</td><td>减小音量</td></tr><tr><td>F6</td><td>增大音量</td></tr><tr><td>F8</td><td>切换屏幕投影模式</td></tr></table>"
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.351,
+                0.262,
+                0.371
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.378,
+                0.709,
+                0.397
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.404,
+                0.492,
+                0.423
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.43,
+                0.939,
+                0.472
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.07,
+                0.499,
+                0.348,
+                0.527
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.537,
+                0.915,
+                0.556
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.567,
+                0.773,
+                0.587
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.075,
+                0.59,
+                0.935,
+                0.632
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.66,
+                0.346,
+                0.686
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.697,
+                0.842,
+                0.717
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.076,
+                0.72,
+                0.93,
+                0.761
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.771,
+                0.589,
+                0.791
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.799,
+                0.481,
+                0.818
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.845,
+                0.281,
+                0.872
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.889,
+                0.779,
+                0.908
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.861,
+                0.022,
+                0.956,
+                0.038
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.354,
+                0.256,
+                0.37
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.381,
+                0.704,
+                0.394
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.407,
+                0.485,
+                0.421
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.431,
+                0.935,
+                0.448
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.455,
+                0.546,
+                0.47
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.501,
+                0.344,
+                0.526
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.539,
+                0.911,
+                0.555
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.566,
+                0.77,
+                0.588
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.592,
+                0.933,
+                0.609
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.107,
+                0.613,
+                0.166,
+                0.633
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.66,
+                0.346,
+                0.687
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.7,
+                0.839,
+                0.715
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.078,
+                0.721,
+                0.927,
+                0.738
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.112,
+                0.746,
+                0.262,
+                0.759
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.774,
+                0.585,
+                0.789
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.8,
+                0.478,
+                0.818
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.845,
+                0.278,
+                0.873
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.888,
+                0.776,
+                0.909
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.941,
+                0.966,
+                0.956,
+                0.98
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.054,
+                0.043,
+                0.233,
+                0.077
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.112,
+                0.941,
+                0.153
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.168,
+                0.16,
+                0.186
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.193,
+                0.926,
+                0.234
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.077,
+                0.239,
+                0.528,
+                0.259
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.278,
+                0.241,
+                0.297
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.302,
+                0.851,
+                0.321
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.328,
+                0.94,
+                0.391
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.397,
+                0.905,
+                0.416
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.077,
+                0.421,
+                0.528,
+                0.441
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.46,
+                0.16,
+                0.479
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.484,
+                0.941,
+                0.526
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.54,
+                0.201,
+                0.558
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.563,
+                0.942,
+                0.628
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.633,
+                0.791,
+                0.652
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.667,
+                0.161,
+                0.686
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.692,
+                0.307,
+                0.71
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.717,
+                0.83,
+                0.736
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.743,
+                0.811,
+                0.761
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.768,
+                0.791,
+                0.786
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.794,
+                0.71,
+                0.812
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.819,
+                0.927,
+                0.86
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.866,
+                0.67,
+                0.884
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.891,
+                0.941,
+                0.932
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.942,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "inline_formula",
+            "bbox": [
+                0.175,
+                0.82,
+                0.278,
+                0.837
+            ],
+            "latex": "0 ^ { \\circ } C \\sim 3 5 ^ { \\circ } C",
+            "score": 0.5188
+        },
+        {
+            "type": "inline_formula",
+            "bbox": [
+                0.55,
+                0.82,
+                0.687,
+                0.836
+            ],
+            "latex": "- 1 0 ^ { \\circ } C \\sim + 4 5 ^ { \\circ } C",
+            "score": 0.549
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.052,
+                0.043,
+                0.236,
+                0.08
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.112,
+                0.937,
+                0.13
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.135,
+                0.247,
+                0.152
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.163,
+                0.16,
+                0.19
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.197,
+                0.921,
+                0.21
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.217,
+                0.109,
+                0.236
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.079,
+                0.24,
+                0.527,
+                0.257
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.279,
+                0.237,
+                0.298
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.305,
+                0.848,
+                0.32
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.331,
+                0.935,
+                0.342
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.093,
+                0.354,
+                0.915,
+                0.365
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.088,
+                0.372,
+                0.127,
+                0.392
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.399,
+                0.902,
+                0.414
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.079,
+                0.422,
+                0.527,
+                0.44
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.07,
+                0.455,
+                0.158,
+                0.481
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.487,
+                0.936,
+                0.5
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.09,
+                0.508,
+                0.444,
+                0.524
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.541,
+                0.198,
+                0.559
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.567,
+                0.934,
+                0.578
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.589,
+                0.937,
+                0.602
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.09,
+                0.611,
+                0.181,
+                0.625
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.634,
+                0.786,
+                0.651
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.666,
+                0.158,
+                0.688
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.692,
+                0.304,
+                0.71
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.719,
+                0.826,
+                0.733
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.745,
+                0.808,
+                0.76
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.77,
+                0.786,
+                0.785
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.795,
+                0.706,
+                0.811
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.82,
+                0.174,
+                0.838
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.282,
+                0.822,
+                0.543,
+                0.835
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.692,
+                0.822,
+                0.924,
+                0.835
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.844,
+                0.525,
+                0.858
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.869,
+                0.665,
+                0.882
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.893,
+                0.938,
+                0.908
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.917,
+                0.241,
+                0.93
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.942,
+                0.966,
+                0.956,
+                0.98
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.878,
+                0.021,
+                0.956,
+                0.037
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.041,
+                0.941,
+                0.083
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.088,
+                0.811,
+                0.107
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.112,
+                0.942,
+                0.155
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.159,
+                0.941,
+                0.201
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.068,
+                0.208,
+                0.937,
+                0.249
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.254,
+                0.449,
+                0.273
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.28,
+                0.812,
+                0.299
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.305,
+                0.877,
+                0.324
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.33,
+                0.717,
+                0.35
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.357,
+                0.73,
+                0.376
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.382,
+                0.591,
+                0.401
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.407,
+                0.892,
+                0.427
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.433,
+                0.596,
+                0.452
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.468,
+                0.161,
+                0.487
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.492,
+                0.942,
+                0.534
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.538,
+                0.53,
+                0.558
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.573,
+                0.161,
+                0.592
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.597,
+                0.811,
+                0.616
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.622,
+                0.943,
+                0.687
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.07,
+                0.701,
+                0.16,
+                0.72
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.725,
+                0.851,
+                0.744
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.75,
+                0.771,
+                0.769
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.776,
+                0.489,
+                0.794
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.801,
+                0.69,
+                0.82
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.827,
+                0.61,
+                0.846
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.853,
+                0.65,
+                0.871
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.877,
+                0.938,
+                0.919
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.875,
+                0.017,
+                0.957,
+                0.041
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.044,
+                0.937,
+                0.057
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.093,
+                0.067,
+                0.423,
+                0.08
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.09,
+                0.808,
+                0.105
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.116,
+                0.937,
+                0.129
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.138,
+                0.563,
+                0.151
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.161,
+                0.936,
+                0.177
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.184,
+                0.323,
+                0.198
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.211,
+                0.931,
+                0.224
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.233,
+                0.405,
+                0.247
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.257,
+                0.444,
+                0.271
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.283,
+                0.807,
+                0.298
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.308,
+                0.872,
+                0.323
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.333,
+                0.71,
+                0.347
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.36,
+                0.725,
+                0.373
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.384,
+                0.585,
+                0.399
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.41,
+                0.888,
+                0.425
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.436,
+                0.591,
+                0.45
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.466,
+                0.158,
+                0.487
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.493,
+                0.938,
+                0.509
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.517,
+                0.703,
+                0.53
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.542,
+                0.524,
+                0.555
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.573,
+                0.158,
+                0.593
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.599,
+                0.808,
+                0.614
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.625,
+                0.937,
+                0.639
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.647,
+                0.936,
+                0.661
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.67,
+                0.323,
+                0.684
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.07,
+                0.696,
+                0.16,
+                0.721
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.727,
+                0.848,
+                0.742
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.753,
+                0.766,
+                0.768
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.779,
+                0.484,
+                0.792
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.804,
+                0.684,
+                0.817
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.829,
+                0.605,
+                0.844
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.855,
+                0.646,
+                0.869
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.88,
+                0.933,
+                0.895
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.089,
+                0.9,
+                0.164,
+                0.919
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.942,
+                0.966,
+                0.956,
+                0.982
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.878,
+                0.021,
+                0.956,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.051,
+                0.16,
+                0.069
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.075,
+                0.57,
+                0.093
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.1,
+                0.942,
+                0.141
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.146,
+                0.791,
+                0.165
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.172,
+                0.55,
+                0.19
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.197,
+                0.912,
+                0.217
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.223,
+                0.942,
+                0.263
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.269,
+                0.933,
+                0.289
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.295,
+                0.941,
+                0.336
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.341,
+                0.941,
+                0.382
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.387,
+                0.932,
+                0.407
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.413,
+                0.67,
+                0.432
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.438,
+                0.327,
+                0.457
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.463,
+                0.921,
+                0.506
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.51,
+                0.942,
+                0.575
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.588,
+                0.181,
+                0.608
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.612,
+                0.831,
+                0.631
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.638,
+                0.871,
+                0.657
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.664,
+                0.851,
+                0.683
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.689,
+                0.852,
+                0.708
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.714,
+                0.892,
+                0.734
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.74,
+                0.941,
+                0.781
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.786,
+                0.941,
+                0.828
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.833,
+                0.941,
+                0.874
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.879,
+                0.912,
+                0.898
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.076,
+                0.903,
+                0.73,
+                0.923
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.875,
+                0.017,
+                0.957,
+                0.041
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.046,
+                0.16,
+                0.073
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.077,
+                0.565,
+                0.091
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.101,
+                0.937,
+                0.117
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.125,
+                0.262,
+                0.139
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.147,
+                0.787,
+                0.164
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.174,
+                0.545,
+                0.189
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.201,
+                0.907,
+                0.214
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.224,
+                0.937,
+                0.239
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.087,
+                0.245,
+                0.146,
+                0.264
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.271,
+                0.929,
+                0.286
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.296,
+                0.936,
+                0.311
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.321,
+                0.302,
+                0.333
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.344,
+                0.936,
+                0.357
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.366,
+                0.342,
+                0.379
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.389,
+                0.928,
+                0.404
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.416,
+                0.664,
+                0.429
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.44,
+                0.323,
+                0.456
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.467,
+                0.917,
+                0.48
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.49,
+                0.705,
+                0.503
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.513,
+                0.937,
+                0.527
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.093,
+                0.536,
+                0.934,
+                0.548
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.558,
+                0.342,
+                0.572
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.585,
+                0.18,
+                0.609
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.615,
+                0.828,
+                0.63
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.64,
+                0.867,
+                0.654
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.665,
+                0.848,
+                0.681
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.692,
+                0.848,
+                0.707
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.717,
+                0.888,
+                0.732
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.743,
+                0.936,
+                0.756
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.765,
+                0.203,
+                0.779
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.788,
+                0.938,
+                0.803
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.811,
+                0.342,
+                0.825
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.835,
+                0.935,
+                0.848
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.858,
+                0.463,
+                0.872
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.88,
+                0.907,
+                0.896
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.078,
+                0.905,
+                0.728,
+                0.921
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.938,
+                0.965,
+                0.959,
+                0.983
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.877,
+                0.021,
+                0.957,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.07,
+                0.05,
+                0.162,
+                0.07
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.068,
+                0.074,
+                0.53,
+                0.094
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.068,
+                0.099,
+                0.611,
+                0.12
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.07,
+                0.134,
+                0.163,
+                0.154
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.16,
+                0.393,
+                0.181
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.069,
+                0.193,
+                0.503,
+                0.214
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.068,
+                0.22,
+                0.937,
+                0.263
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.268,
+                0.941,
+                0.334
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.339,
+                0.937,
+                0.383
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.066,
+                0.388,
+                0.846,
+                0.409
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.065,
+                0.414,
+                0.937,
+                0.458
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.463,
+                0.937,
+                0.506
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.512,
+                0.942,
+                0.578
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.583,
+                0.827,
+                0.604
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.066,
+                0.609,
+                0.677,
+                0.63
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.067,
+                0.635,
+                0.745,
+                0.656
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.074,
+                0.658,
+                0.672,
+                0.679
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "inline_formula",
+            "bbox": [
+                0.559,
+                0.61,
+                0.663,
+                0.628
+            ],
+            "latex": "0 ^ { \\circ } C \\sim 3 5 ^ { \\circ } C",
+            "score": 0.5251
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.876,
+                0.018,
+                0.957,
+                0.041
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.069,
+                0.045,
+                0.159,
+                0.072
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.077,
+                0.524,
+                0.091
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.103,
+                0.605,
+                0.117
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.133,
+                0.158,
+                0.155
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.163,
+                0.388,
+                0.178
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.197,
+                0.496,
+                0.212
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.222,
+                0.932,
+                0.239
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.245,
+                0.683,
+                0.262
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.271,
+                0.938,
+                0.286
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.293,
+                0.927,
+                0.308
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.317,
+                0.405,
+                0.331
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.343,
+                0.931,
+                0.357
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.366,
+                0.425,
+                0.38
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.392,
+                0.839,
+                0.407
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.417,
+                0.933,
+                0.433
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.07,
+                0.439,
+                0.174,
+                0.455
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.466,
+                0.932,
+                0.481
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.49,
+                0.203,
+                0.504
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.516,
+                0.93,
+                0.528
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.538,
+                0.936,
+                0.552
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.561,
+                0.666,
+                0.575
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.587,
+                0.822,
+                0.602
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.612,
+                0.555,
+                0.627
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.664,
+                0.62,
+                0.672,
+                0.628
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.64,
+                0.739,
+                0.652
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.078,
+                0.66,
+                0.668,
+                0.678
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.942,
+                0.966,
+                0.956,
+                0.98
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.053,
+                0.043,
+                0.452,
+                0.078
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.11,
+                0.941,
+                0.152
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.157,
+                0.63,
+                0.175
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.182,
+                0.67,
+                0.2
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.207,
+                0.73,
+                0.227
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.233,
+                0.941,
+                0.274
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.28,
+                0.468,
+                0.298
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.305,
+                0.871,
+                0.324
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.331,
+                0.811,
+                0.349
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.356,
+                0.941,
+                0.398
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.403,
+                0.941,
+                0.445
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.941,
+                0.965,
+                0.956,
+                0.979
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.057,
+                0.044,
+                0.451,
+                0.078
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.113,
+                0.936,
+                0.126
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.134,
+                0.569,
+                0.15
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.158,
+                0.625,
+                0.174
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.185,
+                0.664,
+                0.198
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.21,
+                0.726,
+                0.224
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.236,
+                0.936,
+                0.249
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.09,
+                0.258,
+                0.183,
+                0.273
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.282,
+                0.464,
+                0.296
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.307,
+                0.868,
+                0.322
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.332,
+                0.807,
+                0.348
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.359,
+                0.936,
+                0.372
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.091,
+                0.381,
+                0.786,
+                0.395
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.404,
+                0.937,
+                0.42
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.092,
+                0.428,
+                0.301,
+                0.441
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.943,
+                0.966,
+                0.955,
+                0.98
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.054,
+                0.044,
+                0.232,
+                0.077
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.11,
+                0.56,
+                0.129
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.136,
+                0.943,
+                0.224
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.237,
+                0.16,
+                0.256
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.265,
+                0.941,
+                0.307
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.079,
+                0.312,
+                0.106,
+                0.33
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.078,
+                0.311,
+                0.528,
+                0.33
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "image",
+            "bbox": [
+                0.073,
+                0.342,
+                0.29,
+                0.378
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.392,
+                0.941,
+                0.434
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.441,
+                0.585,
+                0.46
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.467,
+                0.941,
+                0.509
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.522,
+                0.121,
+                0.541
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.549,
+                0.942,
+                0.636
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.643,
+                0.774,
+                0.662
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.676,
+                0.221,
+                0.695
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.702,
+                0.942,
+                0.767
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.069,
+                0.773,
+                0.941,
+                0.839
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.068,
+                0.845,
+                0.944,
+                0.932
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.931,
+                0.965,
+                0.957,
+                0.98
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.051,
+                0.041,
+                0.236,
+                0.082
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.111,
+                0.556,
+                0.129
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.139,
+                0.937,
+                0.153
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.162,
+                0.921,
+                0.175
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.184,
+                0.936,
+                0.198
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.205,
+                0.128,
+                0.223
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.235,
+                0.157,
+                0.258
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.265,
+                0.938,
+                0.285
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.29,
+                0.79,
+                0.307
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.078,
+                0.311,
+                0.527,
+                0.329
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.395,
+                0.939,
+                0.413
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.416,
+                0.652,
+                0.435
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.443,
+                0.582,
+                0.458
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.469,
+                0.934,
+                0.483
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.493,
+                0.226,
+                0.506
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.07,
+                0.519,
+                0.121,
+                0.545
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.552,
+                0.919,
+                0.563
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.574,
+                0.921,
+                0.587
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.597,
+                0.936,
+                0.611
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.619,
+                0.226,
+                0.634
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.645,
+                0.77,
+                0.661
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.675,
+                0.218,
+                0.696
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.077,
+                0.705,
+                0.936,
+                0.719
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.726,
+                0.937,
+                0.742
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.749,
+                0.75,
+                0.764
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.776,
+                0.936,
+                0.79
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.799,
+                0.921,
+                0.813
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.822,
+                0.891,
+                0.835
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.848,
+                0.921,
+                0.861
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.87,
+                0.937,
+                0.883
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.893,
+                0.936,
+                0.906
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.914,
+                0.148,
+                0.931
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.93,
+                0.965,
+                0.958,
+                0.982
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ],
+    [
+        {
+            "type": "header",
+            "bbox": [
+                0.878,
+                0.021,
+                0.956,
+                0.038
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.051,
+                0.16,
+                0.069
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.077,
+                0.941,
+                0.118
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.126,
+                0.942,
+                0.19
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.197,
+                0.942,
+                0.261
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.275,
+                0.18,
+                0.294
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.301,
+                0.941,
+                0.343
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.357,
+                0.16,
+                0.376
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.387,
+                0.941,
+                0.434
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.07,
+                0.446,
+                0.941,
+                0.489
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "paragraph_title",
+            "bbox": [
+                0.071,
+                0.502,
+                0.16,
+                0.52
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "text",
+            "bbox": [
+                0.071,
+                0.528,
+                0.645,
+                0.574
+            ],
+            "angle": 0,
+            "content": null,
+            "merge_prev": false
+        },
+        {
+            "type": "page_number",
+            "bbox": [
+                0.933,
+                0.965,
+                0.955,
+                0.98
+            ],
+            "angle": 0,
+            "content": null
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.877,
+                0.019,
+                0.956,
+                0.04
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.049,
+                0.157,
+                0.071
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.079,
+                0.937,
+                0.094
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.101,
+                0.729,
+                0.116
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.128,
+                0.937,
+                0.142
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.15,
+                0.937,
+                0.164
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.174,
+                0.307,
+                0.187
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.199,
+                0.937,
+                0.212
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.221,
+                0.935,
+                0.235
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.243,
+                0.167,
+                0.26
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.072,
+                0.274,
+                0.178,
+                0.296
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.304,
+                0.938,
+                0.319
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.327,
+                0.386,
+                0.34
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.073,
+                0.356,
+                0.157,
+                0.378
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.388,
+                0.938,
+                0.407
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.417,
+                0.246,
+                0.431
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.076,
+                0.449,
+                0.936,
+                0.463
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.471,
+                0.83,
+                0.486
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.071,
+                0.5,
+                0.157,
+                0.521
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.074,
+                0.53,
+                0.64,
+                0.546
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.075,
+                0.557,
+                0.561,
+                0.573
+            ],
+            "text": "",
+            "score": 1.0
+        },
+        {
+            "type": "ocr_text",
+            "bbox": [
+                0.932,
+                0.965,
+                0.956,
+                0.981
+            ],
+            "text": "",
+            "score": 1.0
+        }
+    ]
+]

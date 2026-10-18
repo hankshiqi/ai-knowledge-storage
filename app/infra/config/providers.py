@@ -12,7 +12,7 @@ from dataclasses import dataclass , field
 #创建一个类赋值当前config对象，导入当前一个类型就可以获得全部config
 @dataclass
 class InfraConfig:#这里必须要定义一个函数，不能直接赋值，所以用了lambda匿名函数
-    app: AppSettings = field(default_factory=lambda: settings)
+    settings: AppSettings = field(default_factory=lambda: settings)
     llm: LLMConfig = field(default_factory=lambda: lm_config)
     embedding: EmbeddingConfig = field(default_factory=lambda: embedding_config)
     reranker: RerankerConfig = field(default_factory=lambda: reranker_config)
@@ -20,7 +20,6 @@ class InfraConfig:#这里必须要定义一个函数，不能直接赋值，所�
     milvus: MilvusConfig = field(default_factory=lambda: milvus_config)
     mineru: MinerUConfig = field(default_factory=lambda: mineru_config)
     minio: MinIOConfig = field(default_factory=lambda: minio_config)
-
 infra_config = InfraConfig()
 
 # print(infra_config.app.import_app_name)
