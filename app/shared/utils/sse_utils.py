@@ -43,6 +43,7 @@ def _sse_pack(event: str, data: Dict[str, Any]) -> str:
     # print(f"[SSE] Packing event: {event}, payload: {payload[:50]}...")
     return f"event: {event}\ndata: {payload}\n\n"
 
+#生产者
 def push_to_session(session_id: str, event: str, data: Dict[str, Any]):
     """
     通过 session_id 推送事件
@@ -54,6 +55,7 @@ def push_to_session(session_id: str, event: str, data: Dict[str, Any]):
     else:
         print(f"[SSE] Warning: No queue found for session {session_id} when pushing {event}")
 
+#消费者
 async def sse_generator(session_id: str, request: Request):
     """
     SSE 生成器，用于 FastAPI 的 StreamingResponse
@@ -64,13 +66,13 @@ async def sse_generator(session_id: str, request: Request):
         # 如果没有对应的队列，直接结束
         print(f"[SSE] Error: Queue not found for session {session_id}. Available sessions: {list(_session_stream.keys())}")
         return
-
+    #获取当前的异步循环对象
     loop = asyncio.get_running_loop()
     try:
         # 发送连接建立信号
         print(f"[SSE] Sending ready signal for {session_id}")
-        yield _sse_pack("ready", {})
-
+        yield _sse_pack("ready", {}) #收到这个信号，前端就知道可以从队列当中进行读取了
+        #作为消费之不断从队列当中拿数据
         while True:
             # 若客户端断开，尽快退出
             if await request.is_disconnected():
@@ -79,8 +81,9 @@ async def sse_generator(session_id: str, request: Request):
                 break
 
             try:
-                # 使用 run_in_executor 避免阻塞 async 事件循环
+                # 使用 run_in_executor 避免阻塞 async 事件循环，丢到线程池当中去干，
                 # {event:"process" : data: {任务状态 / 已完成节点 / 进行中节点}}
+                #这里的1.0表示最多等1秒
                 msg = await loop.run_in_executor(None, stream_queue.get, True, 1.0)
             except queue.Empty:
                 # print(f"[SSE] Queue empty for {session_id}, waiting...")

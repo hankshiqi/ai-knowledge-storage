@@ -175,11 +175,13 @@ def update_task_status(task_id: str, status_name: str, push_queue: bool = False)
 
 
 def task_push_queue(task_id: str):
+    #将数据推送到队列当中
+    #第二个参数是event
     push_to_session(task_id, "progress", {
         "status": get_task_status(task_id),
         "done_list": get_done_task_list(task_id),
         "running_list": get_running_task_list(task_id),
-    })
+    })# 这个主要是给前端汇报处理进度的
 
 
 #

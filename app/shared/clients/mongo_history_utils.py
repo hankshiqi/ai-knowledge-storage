@@ -128,7 +128,7 @@ def save_chat_message(
 
     # 构造要插入/更新的文档数据（MongoDB的基本数据单元是文档，类似Python字典）
     document = {
-        "session_id": session_id,  # 会话ID，关联维度
+        "session_id": session_id,  # 会话ID，关联维度str
         "role": role,  # 消息角色
         "text": text,  # 消息内容
         "rewritten_query": rewritten_query or "",  # 重写查询，空值处理为空字符串

@@ -674,7 +674,7 @@
         // 保留首条欢迎消息，其余先清空再渲染历史
         const nodes = Array.from(chatEl.querySelectorAll('.msg'));
         for(let i=1;i<nodes.length;i++) nodes[i].remove();
-        for(const item of items){
+        for(const item of [...items].reverse()){
           if(item.role === 'user'){
             addUserMsgWithTime(item.text || '', item.ts);
           }else{
@@ -810,6 +810,7 @@
             const finalText = (d && typeof d.answer === 'string' && d.answer.trim().length > 0) ? d.answer : (rawAnswerText || answerEl.textContent || '');
             renderAnswerWithImages(answerEl, finalText, d.image_urls || []);
           }catch(_){}
+          // 这里遇到final就失效了
           es.close();
           sendBtn.disabled = false;
         });

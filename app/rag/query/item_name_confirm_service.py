@@ -1,0 +1,154 @@
+from langchain.messages import HumanMessage
+
+from app.infra.persistentce.history_repository import history_repository
+from app.process.query.agent.state import QueryGraphState
+from app.shared.model.lm_utils import get_llm_client
+from app.shared.runtime.logger import logger
+from app.shared.runtime.load_prompt import load_prompt
+from langchain_core.output_parsers import JsonOutputParser
+from app.infra.vector_store.milvus_gateway import milvus_gateway
+from app.infra.llm.providers import llm_provider
+from app.infra.persistentce.history_repository import history_repository
+def get_data_and_validate(state: QueryGraphState) -> QueryGraphState:
+    """
+    获取数据并检验
+    """
+    session_id = state.get("session_id")
+    original_query = state.get("original_query")
+    #对session_id和original_query进行有效性检验
+    if not session_id or not original_query:
+        logger.error("session_id or original_query is invalid")
+        raise ValueError("session_id or original_query is invalid")
+    return session_id, original_query
+
+def get_recent_records_and_context(session_id):
+    #按照session_id获取最近的history_list
+    history_list = history_repository.list_recent(session_id)
+    #如果为空的话，则直接返回空的context
+    if not history_list:
+        return ""
+    #拼接context
+    history_context = ""
+    for index,item in enumerate(history_list,start=1):
+        history_context += (f"序号{index}:{'提问:' if item.get('role') == 'user' else '回答:'}"
+                            f"{item.get('rewritten_query') if item.get('role')=='user' else item.get('text')}"
+                            f"关联主体:{','.join(item.get('item_names'))}\n"
+                            )
+    return history_context
+def confirm_item_name_and_rewritten_query(history_context, original_query):
+    #获取模型对象
+    model=get_llm_client(json_mode=True)
+    #封装提示词对象
+    prompt=load_prompt("rewritten_query_and_itemnames",query=original_query,history_text=history_context)
+    message = [
+        HumanMessage(
+            content=prompt
+        )
+    ]
+    #调用模型  注意使用JSON解析器
+    json_parser = JsonOutputParser()
+    llm = model | json_parser
+    ans = llm.invoke(message)
+    #进行后处理 从返回的字典当中取对应的rewritten_query以及item_names 如果没有
+    rewritten_query = ans.get("rewritten_query")
+    item_names = ans.get("item_names")
+    if not rewritten_query:
+        ans['rewritten_query']=original_query
+    if not item_names or not isinstance(item_names, list):
+        ans['item_names'] = []
+    else:
+        # 如果确实是 list，但里面夹杂了 None 或空字符串，顺手清理一下
+        ans['item_names'] = [str(name).strip() for name in item_names if name]
+    return ans
+
+def search_by_item_names(item_names)->dict[str,list[dict]]:
+    final_ans={}
+    #先批量取到处理之后item_names的向量
+    item_names_vectors=llm_provider.generate_embeddings(item_names)
+    #调用混合检索
+    for index, item in enumerate(item_names):
+        item_name = item_names[index]
+        sparse_vector = item_names_vectors['sparse'][index]
+        dense_vector = item_names_vectors['dense'][index]
+        #构建request
+        reqs = milvus_gateway.create_hybrid_search_requests(dense_vector, sparse_vector,limit = 5*2)
+        #混合检索得到的结果[[{id:,distance:,entity:{item_names:具体的itemname}},{}.....]]
+        #这里混合检索找的是一个item所以是【【{}】】两层list包一个字典的形式 要【0】才能拿到
+        milvus_result = milvus_gateway.hybrid_search(milvus_gateway.milvus_client, milvus_gateway.get_chunks_collection, reqs,norm_score=True,limit=5)
+        vector_point_list = []
+        if len(milvus_result[0])>0:
+            for sig in milvus_result[0]:
+                vector_point_list.append(
+                    {"item_name":sig.get("entity").get("item_name"),"score":sig.get("distance")}
+                )
+        final_ans[item_name]=vector_point_list
+    return final_ans
+def select_item_names(milvus_result:dict[str,list[dict]])->dict[str,list]:
+    confirm_list=[]
+    optional_list=[]
+    for item_name, vector_point_list in milvus_result.items():
+        high_score_list = [item for item in vector_point_list if item.get('score') >=0.73]
+        md_score_list  =  [item for item in vector_point_list if item.get('score') >=0.6 and item.get('score') <0.73]
+        if len(high_score_list)>0:
+            confirm_list.append(high_score_list[0])
+            continue
+        if len(md_score_list)>0:
+            optional_list.extend(md_score_list[:2])
+            continue
+
+
+    return {"confirm_list":confirm_list,"optional_list":optional_list}
+
+    
+def apply_item_name_change(state,list_dict,rewritten_query):
+    #判断list——dict是否有确定的list
+    #先去拿到两个list
+    confirm_list = list_dict.get("confirm_list", [])
+    optional_list = list_dict.get("optional_list", [])
+    #如果confirm_list不为空，则直接更新state
+    if len(confirm_list)>0:
+        state["item_names"] = [item.get("item_name") for item in confirm_list]
+        state["rewritten_query"] = rewritten_query
+        if "answer" in state:
+            state['answer'] = None
+        return 
+    if len(optional_list)>0:
+        state["answer"] = f"本轮提问没有主体，但是有相似可选的：{','.join([item.get('item_name') for item in optional_list])}，请确认"
+        return 
+    state["answer"] = f"本轮提问没有主体，也没有相似的可选，请确认"
+
+def history_save(state):
+    history_repository.save_message(
+        session_id=state.get("session_id"),
+        role="user",
+        text=state.get("original_query"),
+        rewritten_query=state.get("rewritten_query"),
+        item_names=state.get("item_names",[]),
+        image_urls=[],
+    )
+def confirm_item_name(state: QueryGraphState) -> QueryGraphState:
+    """
+    意图确认服务：
+    1. 结合历史对话提取商品名
+    2. 将模糊问题改写为完整独立的精准问题
+    3. 在 Milvus 向量库中进行混合搜索
+    4. 根据评分高低自动对齐标准型号，或生成反问让用户手动确认
+    5. 同步历史记录到 MongoDB
+    """
+    #对session_id和original_query进行有效性检验
+    session_id, original_query=get_data_and_validate(state)
+    #获取最近的有效记录并且拼接（默认十条），并且检验是否有效（含有item_names）
+    history_context=get_recent_records_and_context(session_id)
+    #调用模型识别item_name和重写的问题,模型按照json格式进行返回
+    llm_dict= confirm_item_name_and_rewritten_query(history_context, original_query)
+    item_names = llm_dict.get("item_names",[])
+    list_dict={}
+    if len(item_names)>0:
+        #根据item_names进行搜索
+        milvus_result:dict[str,list[dict]]=search_by_item_names(item_names)
+        #根据打分确定两个列表，确认列表和可选列表
+        list_dict = select_item_names(milvus_result)
+    #更新state
+    apply_item_name_change(state,list_dict,llm_dict.get("rewritten_query"))
+    history_save(state)
+    return state
