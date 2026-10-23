@@ -5,7 +5,7 @@ from numbers import Real
 from pymilvus import DataType
 from app.infra.vector_store.milvus_gateway import milvus_gateway
 from app.process.import_.agent.state import ImportGraphState
-from app.shared.runtime.logger import logger
+from app.shared.runtime.logger import logger, step_log
 
 # BGE-M3 稠密向量的维度，必须与 Milvus 集合 schema 保持一致。
 DENSE_VECTOR_DIM = 1024
@@ -37,7 +37,7 @@ def _get_client():
         raise ConnectionError("Milvus client is unavailable; check MILVUS_URL and server connectivity")
     return client
 
-
+@step_log("_validate_existing_collection")
 def _validate_existing_collection(client, collection_name: str):
     """检查已有集合的字段、主键和向量维度是否符合当前导入格式。"""
     description = client.describe_collection(collection_name)
@@ -77,7 +77,7 @@ def _validate_existing_collection(client, collection_name: str):
             f"Milvus collection {collection_name!r} dense_vector dimension is {dense_dim}, "
             f"but the importer produces {DENSE_VECTOR_DIM}"
         )
-
+@step_log("check_embeddings_content")
 def check_embeddings_content(state: ImportGraphState):
     """在访问集合前确认待导入切片存在且非空。"""
     embedding_content = state.get('embedding_content')
@@ -88,7 +88,7 @@ def check_embeddings_content(state: ImportGraphState):
         logger.error('embedding_content is empty')
         raise ValueError('embedding_content is empty')
     return embedding_content
-
+@step_log("validate_embeddings_content")
 def validate_embeddings_content(state: ImportGraphState, embedding_content: list[dict]):
     """补齐可从流程状态推导的字段，并在删除旧数据前校验全部切片。"""
     file_title = state.get("file_title")
@@ -157,7 +157,7 @@ def validate_embeddings_content(state: ImportGraphState, embedding_content: list
 
     return embedding_content
 
-
+@step_log("prepare_chunks_collection")
 def prepare_chunks_collection():
     """不存在时创建切片集合，已存在时先确认 schema 兼容。"""
     client = _get_client()
@@ -205,7 +205,7 @@ def prepare_chunks_collection():
         index_params=index_params,
     )
     logger.info(f'集合{collection_name}创建成功')
-
+@step_log("delete_chunks_by_file_title")
 def delete_chunks_by_file_title(state: ImportGraphState):
     """按文件名删除旧切片；JSON 编码可正确转义引号等特殊字符。"""
     client = _get_client()
@@ -222,7 +222,7 @@ def delete_chunks_by_file_title(state: ImportGraphState):
     )
     logger.info(f"已删除 file_title 为 '{file_title}' 的数据，数量: {delete_res.get('delete_count', 0)}")
     return state # 修复：必须返回 state
-
+@step_log("insert_chunks_into_db")
 def insert_chunks_into_db(state: ImportGraphState, embedding_content: list[dict]):
     """写入切片并将 Milvus 自动生成的主键回填到流程状态。"""
     client = _get_client()
@@ -257,7 +257,7 @@ def insert_chunks_into_db(state: ImportGraphState, embedding_content: list[dict]
 
     logger.info(f"已成功插入 {insert_count} 条切片数据到 {collection_name}")
     return state
-
+@step_log("index_chunks")
 def index_chunks(state: ImportGraphState) -> ImportGraphState:
     """执行切片校验、集合准备、旧数据清理和新数据写入。"""
     embedding_content = validate_embeddings_content(

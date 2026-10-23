@@ -3,12 +3,13 @@ from langchain.messages import HumanMessage
 from app.infra.persistentce.history_repository import history_repository
 from app.process.query.agent.state import QueryGraphState
 from app.shared.model.lm_utils import get_llm_client
-from app.shared.runtime.logger import logger
+from app.shared.runtime.logger import logger, step_log
 from app.shared.runtime.load_prompt import load_prompt
 from langchain_core.output_parsers import JsonOutputParser
 from app.infra.vector_store.milvus_gateway import milvus_gateway
 from app.infra.llm.providers import llm_provider
 from app.infra.persistentce.history_repository import history_repository
+@step_log("get_data_and_validate")
 def get_data_and_validate(state: QueryGraphState) -> QueryGraphState:
     """
     获取数据并检验
@@ -21,6 +22,7 @@ def get_data_and_validate(state: QueryGraphState) -> QueryGraphState:
         raise ValueError("session_id or original_query is invalid")
     return session_id, original_query
 
+@step_log("get_recent_records_and_context")
 def get_recent_records_and_context(session_id):
     #按照session_id获取最近的history_list
     history_list = history_repository.list_recent(session_id)
@@ -35,6 +37,7 @@ def get_recent_records_and_context(session_id):
                             f"关联主体:{','.join(item.get('item_names'))}\n"
                             )
     return history_context
+@step_log("confirm_item_name_and_rewritten_query")
 def confirm_item_name_and_rewritten_query(history_context, original_query):
     #获取模型对象
     model=get_llm_client(json_mode=True)
@@ -60,7 +63,7 @@ def confirm_item_name_and_rewritten_query(history_context, original_query):
         # 如果确实是 list，但里面夹杂了 None 或空字符串，顺手清理一下
         ans['item_names'] = [str(name).strip() for name in item_names if name]
     return ans
-
+@step_log("search_by_item_names")
 def search_by_item_names(item_names)->dict[str,list[dict]]:
     final_ans={}
     #先批量取到处理之后item_names的向量
@@ -74,7 +77,7 @@ def search_by_item_names(item_names)->dict[str,list[dict]]:
         reqs = milvus_gateway.create_hybrid_search_requests(dense_vector, sparse_vector,limit = 5*2)
         #混合检索得到的结果[[{id:,distance:,entity:{item_names:具体的itemname}},{}.....]]
         #这里混合检索找的是一个item所以是【【{}】】两层list包一个字典的形式 要【0】才能拿到
-        milvus_result = milvus_gateway.hybrid_search(milvus_gateway.milvus_client, milvus_gateway.get_chunks_collection, reqs,norm_score=True,limit=5)
+        milvus_result = milvus_gateway.hybrid_search(milvus_gateway.milvus_client, milvus_gateway.get_item_name_collection, reqs,norm_score=True,limit=5)
         vector_point_list = []
         if len(milvus_result[0])>0:
             for sig in milvus_result[0]:
@@ -83,23 +86,68 @@ def search_by_item_names(item_names)->dict[str,list[dict]]:
                 )
         final_ans[item_name]=vector_point_list
     return final_ans
-def select_item_names(milvus_result:dict[str,list[dict]])->dict[str,list]:
-    confirm_list=[]
-    optional_list=[]
+
+
+import logging
+
+logger = logging.getLogger(__name__)
+@step_log("select_item_names")
+# def select_item_names(milvus_result:dict[str,list[dict]])->dict[str,list]:
+#     confirm_list=[]
+#     optional_list=[]
+#     for item_name, vector_point_list in milvus_result.items():
+#         high_score_list = [item for item in vector_point_list if item.get('score') >=0.73]
+#         md_score_list  =  [item for item in vector_point_list if item.get('score') >=0.6 and item.get('score') <0.73]
+#         if len(high_score_list)>0:
+#             confirm_list.append(high_score_list[0])
+#             continue
+#         if len(md_score_list)>0:
+#             optional_list.extend(md_score_list[:2])
+#             continue
+
+
+#     return {"confirm_list":confirm_list,"optional_list":optional_list}
+def select_item_names(milvus_result: dict[str, list[dict]]) -> dict[str, list]:
+    confirm_list = []
+    optional_list = []
+
     for item_name, vector_point_list in milvus_result.items():
-        high_score_list = [item for item in vector_point_list if item.get('score') >=0.73]
-        md_score_list  =  [item for item in vector_point_list if item.get('score') >=0.6 and item.get('score') <0.73]
-        if len(high_score_list)>0:
-            confirm_list.append(high_score_list[0])
+        # 先按 score 降序，保证后面 [0] / [:2] 取到的确实是最高分
+        vector_point_list = sorted(
+            vector_point_list,
+            key=lambda x: x.get("score", 0.0) or 0.0,
+            reverse=True,
+        )
+
+        scores = [item.get("score") for item in vector_point_list]
+        print(f"[{item_name}] 共 {len(scores)} 条候选, scores={scores}")
+
+        high_score_list = [i for i in vector_point_list if (i.get("score") or 0) >= 0.73]
+        md_score_list = [
+            i for i in vector_point_list
+            if 0.6 <= (i.get("score") or 0) < 0.73
+        ]
+
+        if high_score_list:
+            best = high_score_list[0]
+            print(f"[{item_name}] -> confirm, 取最高分 {best.get('score')}")
+            confirm_list.append(best)
             continue
-        if len(md_score_list)>0:
-            optional_list.extend(md_score_list[:2])
+
+        if md_score_list:
+            picked = md_score_list[:2]
+            print(f"[{item_name}] -> optional, 取 {[p.get('score') for p in picked]}")
+            optional_list.extend(picked)
             continue
 
+        max_s = scores[0] if scores else None
+        print(f"[{item_name}] -> 丢弃, 最高分 {max_s} 未达 0.6")
 
-    return {"confirm_list":confirm_list,"optional_list":optional_list}
+    print(f"汇总: confirm={len(confirm_list)}, optional={len(optional_list)}")
+    return {"confirm_list": confirm_list, "optional_list": optional_list}
 
-    
+
+@step_log("apply_item_name_change")
 def apply_item_name_change(state,list_dict,rewritten_query):
     #判断list——dict是否有确定的list
     #先去拿到两个list
@@ -126,6 +174,7 @@ def history_save(state):
         item_names=state.get("item_names",[]),
         image_urls=[],
     )
+@step_log("confirm_item_name")
 def confirm_item_name(state: QueryGraphState) -> QueryGraphState:
     """
     意图确认服务：
@@ -152,3 +201,13 @@ def confirm_item_name(state: QueryGraphState) -> QueryGraphState:
     apply_item_name_change(state,list_dict,llm_dict.get("rewritten_query"))
     history_save(state)
     return state
+
+
+if __name__ == "__main__":
+    mock_state = {
+        "session_id": "test_session_001",
+        "original_query": "HAK180 怎么用？",
+        "is_stream": False,
+    }
+    result_state = confirm_item_name(mock_state)
+    print(result_state)

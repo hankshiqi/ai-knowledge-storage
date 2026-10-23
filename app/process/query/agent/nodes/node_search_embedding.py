@@ -10,8 +10,8 @@ def node_search_embedding(state):
     节点功能：进行向量内容检索
     """
     add_running_task(state["session_id"], sys._getframe().f_code.co_name, state.get("is_stream"))
-    state = search_by_embedding(state)
+    embedding_chunks = search_by_embedding(state)
     add_done_task(state["session_id"], sys._getframe().f_code.co_name, state.get("is_stream"))
     return {
-        "embedding_chunks":[]
+        "embedding_chunks":embedding_chunks
     }

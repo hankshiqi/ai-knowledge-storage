@@ -10,8 +10,8 @@ def node_web_search_mcp(state):
     节点功能：调用外部搜索引擎补充信息
     """
     add_running_task(state["session_id"], sys._getframe().f_code.co_name, state["is_stream"])
-    state = search_by_web(state)
+    web_search_docs = search_by_web(state)
     add_done_task(state["session_id"], sys._getframe().f_code.co_name, state["is_stream"])
     return {
-        "web_search_docs":[]
+        "web_search_docs":web_search_docs
     }

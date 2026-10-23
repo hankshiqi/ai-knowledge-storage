@@ -130,10 +130,22 @@ def delete_and_insert_item_name(item_name, file_title):
     client = milvus_gateway.milvus_client
     
     # 2. 先删除（建议加上双引号防止特殊字符报错，并记录删除情况）
-    delete_res = client.delete(
+    title_literal = json.dumps(file_title, ensure_ascii=False)
+    existing_rows = client.query(
         collection_name=collection_name,
-        filter=f'file_title == "{file_title}"' 
-    )    
+        filter=f"file_title == {title_literal}",
+        output_fields=["pk"],
+    )
+    existing_ids = [row["pk"] for row in existing_rows if row.get("pk") is not None]
+    if existing_ids:
+        delete_res = client.delete(
+            collection_name=collection_name,
+            ids=existing_ids,
+        )
+        logger.info(
+            f"Deleted {len(existing_ids)} old item_name rows for file_title={file_title!r}; "
+            f"delete_count={delete_res.get('delete_count', 0)}"
+        )
     # 3. 生成向量
     result = llm_provider.generate_embeddings([item_name])
     

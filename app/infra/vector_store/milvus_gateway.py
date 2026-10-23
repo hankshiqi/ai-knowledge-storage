@@ -14,7 +14,7 @@ class MilvusGateway:
     def create_hybrid_search_requests(self, dense_vector, sparse_vector, dense_params=None, sparse_params=None, expr=None,
                                   limit=5):
         return create_hybrid_search_requests(dense_vector, sparse_vector, dense_params, sparse_params, expr, limit)
-    def hybrid_search(self, client, collection_name, reqs, ranker_weights=(0.5, 0.5), norm_score=False, limit=5,):
-        return hybrid_search(client, collection_name, reqs, ranker_weights, norm_score, limit)
+    def hybrid_search(self, client, collection_name, reqs, ranker_weights=(0.5, 0.5), norm_score=False, limit=5,output_fields=None, search_params=None):
+        return hybrid_search(client, collection_name, reqs, ranker_weights, norm_score, limit,output_fields,search_params)
 milvus_gateway = MilvusGateway()
 
