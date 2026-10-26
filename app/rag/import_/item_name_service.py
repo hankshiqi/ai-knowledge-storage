@@ -1,4 +1,5 @@
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -16,11 +17,77 @@ from app.infra.llm.providers import llm_provider
 from langchain_core.output_parsers import StrOutputParser
 from app.infra.config.providers import infra_config
 from app.infra.vector_store.milvus_gateway import milvus_gateway
-#1.获取并且校验参数
-#    get file_title chunks md_path 
-#   file_title没有去md_path当中去取 chunks没有去md_path_json当中去取
-#
-#
+
+
+# ==================== 本次优化开始：商品名称识别辅助规则 ====================
+# 模型可能在结果前加“商品名称：”等标签，先统一去除这些标签。
+_OUTPUT_LABEL_RE = re.compile(
+    r"^(?:商品名称|产品名称|item[_ -]?name)\s*[:：]\s*",
+    re.IGNORECASE,
+)
+_CHUNK_SUFFIX_RE = re.compile(r"\s*-\d+$")
+_MODEL_TOKEN_RE = re.compile(r"(?i)(?=.*[a-z])(?=.*\d)[a-z][a-z0-9]*(?:[ -]?\d+[a-z0-9]*)?")
+_PRODUCT_INTRO_RE = re.compile(
+    r"(?P<model>[A-Za-z]{1,}[ -]?\d+[A-Za-z0-9]*)\s*(?:是|为)\s*"
+    r"(?:一款|一种|一个)?\s*(?P<product>[\u4e00-\u9fffA-Za-z]{2,20}?(?:机|器|设备))"
+)
+_GENERIC_TITLE_RE = re.compile(
+    r"^(?:default|目录|简介|产品简介|概述|安全提示|注意事项|警告|设备|附录|图片说明|致谢)$",
+    re.IGNORECASE,
+)
+
+
+def normalize_item_name(item_name: str) -> str:
+    """在商品名称写入索引前，清理模型可能生成的格式性内容。"""
+    value = str(item_name or "").strip()
+    if not value:
+        return ""
+
+    # 本次优化：去除引号、代码标记、字段标签和多余空白，避免格式内容污染名称。
+    value = value.strip("`\"'\u201c\u201d\u300c\u300d")
+    value = _OUTPUT_LABEL_RE.sub("", value).strip()
+    value = value.strip("`\"'\u201c\u201d\u300c\u300d")
+    value = re.sub(r"\s+", " ", value)
+
+    return value.strip(" \t\r\n,，。；;:：")
+
+
+def extract_item_name_from_titles(chunks: list[dict[str, Any]]) -> str:
+    """优先从解析器生成的标题或产品简介中提取高置信度商品名称。
+
+    产品说明书通常会先给出型号和产品类别，再出现版权、售后和经销商信息。
+    直接使用标题可以避免模型把正文中的偶然品牌提及误判为商品名称。
+    """
+    for chunk in chunks[:CHUNKS_SPLIT_TOP_NUMBER]:
+        title = str(chunk.get("title") or "").strip()
+        if not title:
+            continue
+        title = re.sub(r"^#+\s*", "", title)
+        title = _CHUNK_SUFFIX_RE.sub("", title).strip()
+        title = normalize_item_name(title)
+        if not title or _GENERIC_TITLE_RE.fullmatch(title):
+            continue
+        if not _MODEL_TOKEN_RE.search(title):
+            continue
+
+        # 本次优化：保留标题原有写法，同时清除数字/字母与中文之间的装饰性空格。
+        # 例如将“HAK 180 烫金机”规范为“HAK 180烫金机”。
+        title = re.sub(r"(?<=[0-9A-Za-z])\s+(?=[\u4e00-\u9fff])", "", title)
+        return title
+
+    # 本次优化：部分说明书标题只有型号，产品类别在首段介绍中出现。
+    # 例如从“HAK 180 是一款烫金机”组合出“HAK 180烫金机”。
+    for chunk in chunks[:CHUNKS_SPLIT_TOP_NUMBER]:
+        content = str(chunk.get("text") or chunk.get("content") or "")
+        match = _PRODUCT_INTRO_RE.search(content)
+        if not match:
+            continue
+        model = re.sub(r"\s+", " ", match.group("model")).strip()
+        product = match.group("product").strip()
+        return f"{model}{product}"
+    return ""
+# ==================== 本次优化结束：商品名称识别辅助规则 ====================
+# 获取并校验参数：优先使用流程状态中的 file_title 和 chunks，缺失时从 md_path 补读。
 @step_log("get_data_and_validate")
 def get_data_and_validate(state: ImportGraphState):
     file_title = state.get("file_title")
@@ -43,6 +110,12 @@ def get_data_and_validate(state: ImportGraphState):
     return chunks, file_title
 @step_log("get_item_name_from_chunks")
 def get_item_name_from_chunks(chunks: list[dict[str, Any]], file_title: str) -> str:
+    # 本次优化：标题或产品简介能够确定名称时直接使用，避免让模型从版权/售后文本猜测品牌。
+    title_item_name = extract_item_name_from_titles(chunks)
+    if title_item_name:
+        logger.info(f'从产品标题确定item_name：{title_item_name}')
+        return title_item_name
+
     # 获取到前面几个 chunks
     input_chunks = chunks[:CHUNKS_SPLIT_TOP_NUMBER]
     system_prompt = load_prompt('product_recognition_system')
@@ -64,7 +137,7 @@ def get_item_name_from_chunks(chunks: list[dict[str, Any]], file_title: str) -> 
     ]
     chat_model = llm_provider.chat()
     chain = chat_model | StrOutputParser()
-    item_name = chain.invoke(messages)
+    item_name = normalize_item_name(chain.invoke(messages))
 
     if not item_name:
         item_name = file_title
@@ -75,10 +148,10 @@ def get_item_name_from_chunks(chunks: list[dict[str, Any]], file_title: str) -> 
 @step_log("prepare_item_name_collection")
 def prepare_item_name_collection():
     
-    # Define server address
+    # 获取 Milvus 服务地址配置（实际客户端由网关统一管理）。
     SERVER_ADDR = infra_config.milvus.milvus_url
 
-    # Create a MilvusClient instance
+    # 获取 Milvus 客户端实例。
     client = milvus_gateway.milvus_client
     #上来先判断集合是否存在，先去获取item集合的名称
     collection_name = milvus_gateway.get_item_name_collection
@@ -86,7 +159,7 @@ def prepare_item_name_collection():
         logger.info(f'集合{collection_name}已经存在,无需再次创建')
         return 
     logger.info(f'集合{collection_name}不存在，创建集合')
-    # Create a collection
+    # 创建集合 schema。
     schema = client.create_schema(
         auto_id=True,
         enable_dynamic_fields=True,

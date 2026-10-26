@@ -61,6 +61,7 @@ class HistoryItem(BaseModel):
     #field可以夹加上元数据限制
     item_names: list[str] = Field(default_factory=list)
     image_urls: list[str] = Field(default_factory=list)
+    #时间戳
     ts: Any = None
 
 class HistoryResponse(BaseModel):

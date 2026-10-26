@@ -149,4 +149,4 @@ async def get_history(session_id: str):
     )
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host=infra_config.settings.app_host, port=infra_config.settings.import_app_port)
+    uvicorn.run(app, host=infra_config.settings.app_host, port=infra_config.settings.query_app_port)

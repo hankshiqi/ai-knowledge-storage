@@ -40,6 +40,7 @@ async def open_ai_mcp(rewritten_query):
             tool_name="search_pro",
             arguments={"query": rewritten_query},
         )
+        #返回的数据格式   "{\"pages\":[{\"snippet\":\"xxx，url\":\"xxx\"}]}\""
     finally:
         # 无论成功失败，最终释放连接资源，避免连接堆积
         await mcp_server.cleanup()

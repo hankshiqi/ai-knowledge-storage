@@ -28,7 +28,15 @@ def get_recent_records_and_context(session_id):
     history_list = history_repository.list_recent(session_id)
     #如果为空的话，则直接返回空的context
     if not history_list:
-        return ""
+        logger.warning(f"当前会话{session_id}没有对话记录,提前跳出")
+        return "无对话记录"
+    #判断当前的这些列表当中是否有明确的item_name
+    final_history_list = [
+        item for item in history_list if len(item.get("item_names",[])) > 0
+    ]
+    if not final_history_list or len(final_history_list) ==0 :
+        logger.warning(f"当前会话{session_id}没有有效的对话记录,提前跳出")
+        return "无有效对话记录"
     #拼接context
     history_context = ""
     for index,item in enumerate(history_list,start=1):
@@ -63,29 +71,36 @@ def confirm_item_name_and_rewritten_query(history_context, original_query):
         # 如果确实是 list，但里面夹杂了 None 或空字符串，顺手清理一下
         ans['item_names'] = [str(name).strip() for name in item_names if name]
     return ans
-@step_log("search_by_item_names")
-def search_by_item_names(item_names)->dict[str,list[dict]]:
-    final_ans={}
-    #先批量取到处理之后item_names的向量
-    item_names_vectors=llm_provider.generate_embeddings(item_names)
-    #调用混合检索
-    for index, item in enumerate(item_names):
-        item_name = item_names[index]
-        sparse_vector = item_names_vectors['sparse'][index]
-        dense_vector = item_names_vectors['dense'][index]
-        #构建request
-        reqs = milvus_gateway.create_hybrid_search_requests(dense_vector, sparse_vector,limit = 5*2)
-        #混合检索得到的结果[[{id:,distance:,entity:{item_names:具体的itemname}},{}.....]]
-        #这里混合检索找的是一个item所以是【【{}】】两层list包一个字典的形式 要【0】才能拿到
-        milvus_result = milvus_gateway.hybrid_search(milvus_gateway.milvus_client, milvus_gateway.get_item_name_collection, reqs,norm_score=True,limit=5)
-        vector_point_list = []
-        if len(milvus_result[0])>0:
-            for sig in milvus_result[0]:
-                vector_point_list.append(
-                    {"item_name":sig.get("entity").get("item_name"),"score":sig.get("distance")}
-                )
-        final_ans[item_name]=vector_point_list
-    return final_ans
+@step_log("get_recent_records_and_context")
+def get_recent_records_and_context(session_id):
+    # 按照 session_id 获取最近的 history_list
+    history_list = history_repository.list_recent(session_id)
+
+    if not history_list:
+        logger.warning(f"当前会话{session_id}没有对话记录,提前跳出")
+        return "无对话记录"
+
+    # 是否存在至少一条带 item_names 的有效记录
+    final_history_list = [
+        it for it in history_list if it.get("item_names")
+    ]
+    if not final_history_list:
+        logger.warning(f"当前会话{session_id}没有有效的对话记录,提前跳出")
+        return "无有效对话记录"
+
+    # 拼接到 history_list 全量(保持原逻辑)
+    # 若只想拼有效记录,把 history_list 改为 final_history_list
+    parts = []
+    for index, it in enumerate(final_history_list, start=1):
+        if it.get("role") == "user":
+            prefix = "提问:"
+            content = it.get("rewritten_query") or it.get("text") or ""
+        else:
+            prefix = "回答:"
+            content = it.get("text") or ""
+        names = ",".join(it.get("item_names") or [])
+        parts.append(f"序号{index}:{prefix}{content}关联主体:{names}\n")
+    return "".join(parts)
 
 
 import logging
@@ -107,6 +122,40 @@ logger = logging.getLogger(__name__)
 
 
 #     return {"confirm_list":confirm_list,"optional_list":optional_list}
+def search_by_item_names(item_names):
+        """
+    基于候选主体名称到 Milvus 中检索相近主体。
+
+    Args:
+        item_names: 模型抽取出来的主体名称列表。
+
+    Returns:
+        dict[str, list[dict]]: 以原始主体名为键、相似主体候选列表为值的映射结果。
+    """
+        ans_dict = {}
+        vector_dict = llm_provider.generate_embeddings(item_names)
+        for index, item_name in enumerate(item_names):
+            dense_vector = vector_dict["dense"][index]
+            sparse_vector = vector_dict["sparse"][index]
+            req = milvus_gateway.create_hybrid_search_requests(dense_vector,sparse_vector)
+            milvus_result = milvus_gateway.hybrid_search(
+                client = milvus_gateway.milvus_client,
+                collection_name = milvus_gateway.get_item_name_collection,
+                reqs = req,
+                ranker_weights=(0.5,0.5),
+                norm_score = True,
+                output_fields=["item_name"]
+            )
+            batch = milvus_result[0] if milvus_result else []
+            ans_dict[item_name] = [
+                {
+                    "item_name": (item.get("entity") or {}).get("item_name", ""),
+                    "score": item.get("distance") or 0,
+                }
+                for item in batch
+            ]
+        return ans_dict
+
 def select_item_names(milvus_result: dict[str, list[dict]]) -> dict[str, list]:
     confirm_list = []
     optional_list = []

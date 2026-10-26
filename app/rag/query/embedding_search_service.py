@@ -4,12 +4,12 @@ from app.infra.vector_store.milvus_gateway import milvus_gateway
 from app.infra.llm.providers import llm_provider
 from app.infra.persistentce.history_repository import history_repository
 def confirm_item_name_and_rewritten_query(state):
-    item_name = state.get("item_name")
+    item_names = state.get("item_names")
     rewritten_query = state.get("rewritten_query")
-    if item_name is None or rewritten_query is None:
+    if item_names is None or rewritten_query is None:
         logger.error("item_name or rewritten_query is None")
         raise ValueError("item_name and rewritten_query must be provided")
-    return item_name,rewritten_query
+    return item_names,rewritten_query
 
 def search_by_milvus(item_name,rewritten_query):
     #embedding

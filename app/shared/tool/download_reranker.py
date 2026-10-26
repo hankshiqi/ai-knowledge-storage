@@ -3,7 +3,7 @@
 """
 from modelscope.hub.snapshot_download import snapshot_download
 
-local_dir = r"D:\ai_models\modelscope_cache\models\rerank"
+local_dir = r"E:\learn\agent开发\掌柜智库\models"
 
 snapshot_download(
     model_id="BAAI/bge-reranker-large",
