@@ -165,8 +165,11 @@
     const fileInput = document.getElementById('fileInput');
     const fileList = document.getElementById('fileList');
     
-    // 默认走导入服务同源地址；如你把页面单独打开（file://），回退到导入服务默认端口。
-    const API_BASE = location.origin.startsWith('http') ? location.origin : 'http://127.0.0.1:8000';
+    // Unified deployment mounts the import API under /import; standalone debug keeps root routes.
+    const API_PREFIX = location.pathname.startsWith('/import/') ? '/import' : '';
+    const API_BASE = location.origin.startsWith('http')
+        ? `${location.origin}${API_PREFIX}`
+        : 'http://127.0.0.1:8000/import';
 
     dropZone.addEventListener('dragover', (e) => {
         e.preventDefault();

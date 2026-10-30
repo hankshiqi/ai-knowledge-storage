@@ -13,8 +13,8 @@ class LLMProvider:
     def bge_m3_embedding(self):
         return get_bge_m3_ef()
     #生成向量
-    def generate_embeddings(self,texts:list[str]):
-        return generate_embeddings(texts )
+    def generate_embeddings(self, texts: list[str], *, use_cache: bool = True):
+        return generate_embeddings(texts, use_cache=use_cache)
     def get_reranker_model(self):
         return get_reranker_model()
 llm_provider = LLMProvider()

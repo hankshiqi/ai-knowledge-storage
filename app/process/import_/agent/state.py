@@ -19,6 +19,7 @@ class ImportGraphState(TypedDict):
     is_md_enabled:bool
     file_title:str
     force_reparse:bool
+    file_hash:str
     #生成文件内容存放路径
     local_dir:str
     md_content:str
@@ -37,6 +38,7 @@ default_state:ImportGraphState = {
     "is_md_enabled": False,
     "file_title": "",
     "force_reparse": False,
+    "file_hash": "",
     "local_dir": "",
     "md_content": "",
     "chunks": [],

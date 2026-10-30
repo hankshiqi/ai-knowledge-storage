@@ -49,6 +49,11 @@ def _validate_existing_collection(client, collection_name: str):
             f"Milvus collection {collection_name!r} is missing fields {missing_fields}; "
             "migrate or recreate the collection before importing"
         )
+    if "file_hash" not in fields and description.get("enable_dynamic_field") is not True:
+        raise RuntimeError(
+            f"Milvus collection {collection_name!r} cannot store file_hash; "
+            "enable dynamic fields or recreate the collection with a file_hash field"
+        )
     if description.get("auto_id") is not True:
         raise RuntimeError(
             f"Milvus collection {collection_name!r} does not use auto-generated IDs, "
@@ -93,10 +98,13 @@ def validate_embeddings_content(state: ImportGraphState, embedding_content: list
     """补齐可从流程状态推导的字段，并在删除旧数据前校验全部切片。"""
     file_title = state.get("file_title")
     item_name = state.get("item_name")
+    file_hash = state.get("file_hash")
     if not isinstance(file_title, str) or not file_title.strip():
         raise ValueError("file_title is required before importing chunks")
     if not isinstance(item_name, str) or not item_name.strip():
         raise ValueError("item_name is required before importing chunks")
+    if not isinstance(file_hash, str) or len(file_hash) != 64:
+        raise ValueError("file_hash must be a SHA-256 hex digest before importing chunks")
 
     for index, chunk in enumerate(embedding_content):
         if not isinstance(chunk, dict):
@@ -108,6 +116,9 @@ def validate_embeddings_content(state: ImportGraphState, embedding_content: list
         if chunk["file_title"] != file_title:
             raise ValueError(f"embedding_content[{index}] has a different file_title")
         chunk["item_name"] = item_name
+        # file_hash is a dynamic field in the chunks collection. It is the
+        # document identity used for replacement; file_title is only display data.
+        chunk["file_hash"] = file_hash
         if not chunk.get("parent_title"):
             chunk["parent_title"] = chunk.get("title") or ""
         if chunk.get("part") is None:
@@ -205,22 +216,22 @@ def prepare_chunks_collection():
         index_params=index_params,
     )
     logger.info(f'集合{collection_name}创建成功')
-@step_log("delete_chunks_by_file_title")
-def delete_chunks_by_file_title(state: ImportGraphState):
-    """按文件名删除旧切片；JSON 编码可正确转义引号等特殊字符。"""
+@step_log("delete_chunks_by_file_hash")
+def delete_chunks_by_file_hash(state: ImportGraphState):
+    """按内容哈希删除同一版本的旧切片，避免同名文件互相覆盖。"""
     client = _get_client()
     collection_name = milvus_gateway.get_chunks_collection
-    file_title = state.get('file_title')
-    if not isinstance(file_title, str) or not file_title.strip():
-        raise ValueError("file_title is required before deleting existing chunks")
+    file_hash = state.get("file_hash")
+    if not isinstance(file_hash, str) or len(file_hash) != 64:
+        raise ValueError("file_hash must be a SHA-256 hex digest before deleting existing chunks")
 
-    # 使用 JSON 字符串字面量构造过滤表达式，正确转义文件名中的特殊字符。
-    title_literal = json.dumps(file_title, ensure_ascii=False)
+    # 使用 JSON 字符串字面量构造过滤表达式，正确转义哈希值。
+    hash_literal = json.dumps(file_hash, ensure_ascii=False)
     delete_res = client.delete(
         collection_name=collection_name,
-        filter=f"file_title == {title_literal}"
+        filter=f"file_hash == {hash_literal}"
     )
-    logger.info(f"已删除 file_title 为 '{file_title}' 的数据，数量: {delete_res.get('delete_count', 0)}")
+    logger.info(f"已删除 file_hash 为 '{file_hash}' 的数据，数量: {delete_res.get('delete_count', 0)}")
     return state # 修复：必须返回 state
 @step_log("insert_chunks_into_db")
 def insert_chunks_into_db(state: ImportGraphState, embedding_content: list[dict]):
@@ -266,7 +277,7 @@ def index_chunks(state: ImportGraphState) -> ImportGraphState:
     )
     prepare_chunks_collection()
 
-    state = delete_chunks_by_file_title(state)
+    state = delete_chunks_by_file_hash(state)
     state = insert_chunks_into_db(state, embedding_content)
 
     logger.info(f"{state.get('file_title')} 已经入库完成!")

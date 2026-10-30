@@ -197,6 +197,23 @@
       text-decoration:none;
       word-break:break-all;
     }
+    .answer-inline-image-link{
+      display:block;
+      width:fit-content;
+      max-width:100%;
+      margin:10px 0;
+    }
+    .answer-inline-image{
+      display:block;
+      max-width:min(100%, 600px);
+      max-height:600px;
+      width:auto;
+      height:auto;
+      border-radius:12px;
+      border:1px solid var(--border);
+      box-shadow:0 10px 24px rgba(31,45,61,.10);
+      background:#fff;
+    }
 
     .typing{
       display:inline-flex;gap:6px;align-items:center;
@@ -300,7 +317,7 @@
 
   <script>
     // 默认走查询服务同源地址；如你把页面单独打开（file://），回退到查询服务默认端口。
-    const API_BASE = location.origin.startsWith('http') ? location.origin : 'http://127.0.0.1:8001';
+    const API_BASE = location.origin.startsWith('http') ? location.origin : 'http://127.0.0.1:8000';
     const chatEl = document.getElementById('chat');
     const inputEl = document.getElementById('input');
     const sendBtn = document.getElementById('send');
@@ -445,6 +462,59 @@
       return { text: before, images };
     }
 
+    function appendImageLink(parentEl, rawUrl, altText, renderedUrls){
+      const safeUrl = normalizeUrl(rawUrl);
+      if(!safeUrl || !isImageUrl(safeUrl)) return false;
+
+      const link = document.createElement('a');
+      link.className = 'answer-inline-image-link';
+      link.href = safeUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+
+      const img = document.createElement('img');
+      img.className = 'answer-inline-image';
+      img.loading = 'lazy';
+      img.src = safeUrl;
+      img.alt = String(altText || '参考图片').trim() || '参考图片';
+      img.title = img.alt;
+      img.referrerPolicy = 'no-referrer';
+      img.addEventListener('error', () => {
+        link.remove();
+      });
+      link.appendChild(img);
+      parentEl.appendChild(link);
+      if(renderedUrls) renderedUrls.add(safeUrl);
+      return true;
+    }
+
+    function renderTextWithInlineImages(parentEl, text, renderedUrls){
+      const textEl = document.createElement('div');
+      textEl.className = 'answer-text';
+      const raw = String(text || '');
+      // 只解析远程图片 Markdown，其他文本始终通过 text node 写入，避免执行 HTML。
+      const imageRe = /!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g;
+      let cursor = 0;
+      let match;
+      while((match = imageRe.exec(raw)) !== null){
+        if(match.index > cursor){
+          textEl.appendChild(document.createTextNode(raw.slice(cursor, match.index)));
+        }
+        const rendered = appendImageLink(textEl, match[2], match[1], renderedUrls);
+        if(!rendered){
+          textEl.appendChild(document.createTextNode(match[0]));
+        }
+        cursor = imageRe.lastIndex;
+      }
+      if(cursor < raw.length){
+        textEl.appendChild(document.createTextNode(raw.slice(cursor)));
+      }
+      if(!textEl.childNodes.length){
+        textEl.appendChild(document.createTextNode('（已完成，但未返回答案）'));
+      }
+      parentEl.appendChild(textEl);
+    }
+
     function shouldShowImagesByAnswer(answerText){
       const t = String(answerText || '');
       // 常见“需要看图/见图/如下图”的表述
@@ -467,8 +537,6 @@
       
       // 只要后端给了候选图片，就展示（避免答案没写“如图”但用户仍需要看图）
       // 或者从文本里提取到了图片 URL
-      const shouldShow = hasBlockImages || (candidates.length > 0) || (looseImages.length > 0);
-      
       // 优先级：Block 显式标记 > 后端候选 > 文本宽松提取
       // 注意：这里做个并集可能更好，防止漏掉
       const allImages = new Set([
@@ -477,25 +545,18 @@
           ...looseImages
       ]);
       const images = Array.from(allImages);
+      const renderedInlineImages = new Set();
 
       containerEl.textContent = '';
 
-      if((text || '').trim().length > 0){
-        const textEl = document.createElement('div');
-        textEl.className = 'answer-text';
-        textEl.textContent = text;
-        containerEl.appendChild(textEl);
-      }else{
-        const textEl = document.createElement('div');
-        textEl.className = 'answer-text';
-        textEl.textContent = '（已完成，但未返回答案）';
-        containerEl.appendChild(textEl);
-      }
+      renderTextWithInlineImages(containerEl, text, renderedInlineImages);
 
-      if(images && images.length > 0){
+      // Markdown 中已经定位渲染的图片不再重复追加；没有位置标记的候选图仍放到末尾。
+      const fallbackImages = images.filter(url => !renderedInlineImages.has(normalizeUrl(url)));
+      if(fallbackImages.length > 0){
         const imgWrap = document.createElement('div');
         imgWrap.className = 'answer-images';
-        for(const url of images){
+        for(const url of fallbackImages){
           const safeUrl = normalizeUrl(url);
           const img = document.createElement('img');
           img.loading = 'lazy';

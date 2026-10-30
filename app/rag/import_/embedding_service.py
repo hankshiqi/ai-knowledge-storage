@@ -43,7 +43,9 @@ def batch_generate_embeddings(chunks: list[dict[str, Any]],item_name: str,batch_
             chunk['content'] = f"主体:{item_name}, 内容:{chunk['content']}"
             batch_content_list.append(chunk['content'])
         #注意这里要先去获取这一批数据的content 之后再进行批量处理
-        result = llm_provider.generate_embeddings(batch_content_list)
+        # Chunk vectors are persisted in Milvus immediately; caching every
+        # unique chunk in Mongo would add write amplification to imports.
+        result = llm_provider.generate_embeddings(batch_content_list, use_cache=False)
         for i,chunk in enumerate(batch_chunks):
             chunk['dense_vector'] = result['dense'][i]
             chunk['sparse_vector'] = result['sparse'][i]

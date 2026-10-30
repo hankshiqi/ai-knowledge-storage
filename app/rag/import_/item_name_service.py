@@ -25,6 +25,17 @@ _OUTPUT_LABEL_RE = re.compile(
     r"^(?:商品名称|产品名称|item[_ -]?name)\s*[:：]\s*",
     re.IGNORECASE,
 )
+_DOCUMENT_SUFFIX_RE = re.compile(
+    r"(?:[\(\[【（]\s*(?:用户手册|用户指南|使用说明书|使用手册|说明书|操作手册|操作指南|"
+    r"产品手册|产品说明书|产品指南|安装手册|安装指南|维修手册|维修指南|维护手册|维护指南|"
+    r"服务手册|安全手册|安全指南|快速入门指南|快速入门|参考手册|技术手册|说明文档)"
+    r"\s*[\)\]】）]|用户手册|用户指南|使用说明书|使用手册|说明书|操作手册|操作指南|"
+    r"产品手册|产品说明书|产品指南|安装手册|安装指南|维修手册|维修指南|维护手册|维护指南|"
+    r"服务手册|安全手册|安全指南|快速入门指南|快速入门|参考手册|技术手册|说明文档|"
+    r"user\s+manual|user\s+guide|owner(?:'s|s)?\s+manual|installation\s+guide|"
+    r"service\s+manual|operation\s+manual|product\s+manual|manual|guide)\s*$",
+    re.IGNORECASE,
+)
 _CHUNK_SUFFIX_RE = re.compile(r"\s*-\d+$")
 _MODEL_TOKEN_RE = re.compile(r"(?i)(?=.*[a-z])(?=.*\d)[a-z][a-z0-9]*(?:[ -]?\d+[a-z0-9]*)?")
 _PRODUCT_INTRO_RE = re.compile(
@@ -48,6 +59,15 @@ def normalize_item_name(item_name: str) -> str:
     value = _OUTPUT_LABEL_RE.sub("", value).strip()
     value = value.strip("`\"'\u201c\u201d\u300c\u300d")
     value = re.sub(r"\s+", " ", value)
+    value = value.rstrip(" \t\r\n-_–—,，。；;:：")
+
+    # 文档标题经常把“用户手册/说明书”等载体名称拼在型号后面；它不是商品实体的一部分。
+    # 只匹配字符串末尾，避免误删商品名称正文中的“手册”等词。
+    value_without_suffix = _DOCUMENT_SUFFIX_RE.sub("", value).rstrip(
+        " \t\r\n-_–—_:：/|·,，。；;"
+    )
+    if value_without_suffix != value:
+        value = value_without_suffix
 
     return value.strip(" \t\r\n,，。；;:：")
 
@@ -140,7 +160,7 @@ def get_item_name_from_chunks(chunks: list[dict[str, Any]], file_title: str) -> 
     item_name = normalize_item_name(chain.invoke(messages))
 
     if not item_name:
-        item_name = file_title
+        item_name = normalize_item_name(file_title) or str(file_title).strip()
         logger.warning(f'未识别出item_name，使用文件名作为item_name：{item_name}')
     else:
         logger.info(f'识别到的item_name是{item_name}')
@@ -167,6 +187,7 @@ def prepare_item_name_collection():
     #添加对应的字段
     schema.add_field(field_name='pk',datatype=DataType.INT64,is_primary=True)
     schema.add_field(field_name='file_title',datatype=DataType.VARCHAR,max_length=512)
+    schema.add_field(field_name='file_hash',datatype=DataType.VARCHAR,max_length=64)
     schema.add_field(field_name='item_name',datatype=DataType.VARCHAR,max_length=512)
     schema.add_field(field_name='dense_vector',datatype=DataType.FLOAT_VECTOR,dim=1024)
     schema.add_field(field_name='sparse_vector',datatype=DataType.SPARSE_FLOAT_VECTOR)
@@ -197,28 +218,30 @@ def prepare_item_name_collection():
     logger.info(f'集合{collection_name}创建成功')
 
 @step_log("delete_and_insert_item_name")
-def delete_and_insert_item_name(item_name, file_title):
+def delete_and_insert_item_name(item_name, file_title, file_hash=""):
     # 1. 获取集合名称（注意加上括号调用方法）
     collection_name = milvus_gateway.get_item_name_collection 
     client = milvus_gateway.milvus_client
     
-    # 2. 先删除（建议加上双引号防止特殊字符报错，并记录删除情况）
-    title_literal = json.dumps(file_title, ensure_ascii=False)
-    existing_rows = client.query(
-        collection_name=collection_name,
-        filter=f"file_title == {title_literal}",
-        output_fields=["pk"],
-    )
-    existing_ids = [row["pk"] for row in existing_rows if row.get("pk") is not None]
-    if existing_ids:
-        delete_res = client.delete(
+    # 2. 新集合支持 file_hash 时按哈希替换；旧集合无法存储哈希，不能再按
+    #    file_title 删除，否则两个用户上传同名但内容不同的文件会互相覆盖。
+    description = client.describe_collection(collection_name)
+    field_names = {field.get("name") for field in description.get("fields", [])}
+    supports_file_hash = "file_hash" in field_names or description.get("enable_dynamic_field") is True
+    if supports_file_hash and file_hash:
+        hash_literal = json.dumps(file_hash, ensure_ascii=False)
+        existing_rows = client.query(
             collection_name=collection_name,
-            ids=existing_ids,
+            filter=f"file_hash == {hash_literal}",
+            output_fields=["pk"],
         )
-        logger.info(
-            f"Deleted {len(existing_ids)} old item_name rows for file_title={file_title!r}; "
-            f"delete_count={delete_res.get('delete_count', 0)}"
-        )
+        existing_ids = [row["pk"] for row in existing_rows if row.get("pk") is not None]
+        if existing_ids:
+            delete_res = client.delete(collection_name=collection_name, ids=existing_ids)
+            logger.info(
+                f"Deleted {len(existing_ids)} old item_name rows for file_hash={file_hash!r}; "
+                f"delete_count={delete_res.get('delete_count', 0)}"
+            )
     # 3. 生成向量
     result = llm_provider.generate_embeddings([item_name])
     
@@ -228,16 +251,17 @@ def delete_and_insert_item_name(item_name, file_title):
     sparse_vec = result["sparse"][0]
     
     # 5. 插入数据（data 必须是列表包裹字典）
+    row = {
+        'file_title': file_title,
+        'item_name': item_name,
+        'dense_vector': dense_vec,
+        'sparse_vector': sparse_vec,
+    }
+    if supports_file_hash and file_hash:
+        row["file_hash"] = file_hash
     insert_res = client.insert(
         collection_name=collection_name,
-        data=[
-            {
-                'file_title': file_title,     # 直接用函数参数
-                'item_name': item_name,       # 直接用函数参数
-                'dense_vector': dense_vec,    # 从字典结果中提取
-                'sparse_vector': sparse_vec   # 从字典结果中提取
-            }
-        ]
+        data=[row]
     )    
     logger.info(f'插入 item_name: {item_name} 到集合成功！插入主键: {insert_res["ids"]}')
 
@@ -256,7 +280,7 @@ def recognize_and_index_item_name(state: ImportGraphState) -> ImportGraphState:
     #提前准备集合数据
     prepare_item_name_collection()
     #给chunks嵌入item_name
-    delete_and_insert_item_name(item_name,file_title)
+    delete_and_insert_item_name(item_name, file_title, state.get("file_hash", ""))
     state['chunks']=chunks
     state['item_name']=item_name
     return state

@@ -70,3 +70,15 @@ def env_float(name: str, default: float = 0.0) -> float:
         return float(value)
     except ValueError:
         return default
+
+
+def env_int(name: str, default: int = 0) -> int:
+    """Read an integer environment variable and fall back on invalid values."""
+    value = os.getenv(name)
+    if value is None or value == "":
+        return default
+
+    try:
+        return int(value)
+    except ValueError:
+        return default
