@@ -4,9 +4,10 @@ from app.rag.query.config import NONE_RRF_K,NODE_RRF_LIMIT_TOP
 def get_data_and_validates(state):
     embedding_chunks = state.get("embedding_chunks",[])
     hyde_embedding_chunks = state.get("hyde_embedding_chunks",[])
-    if not len(embedding_chunks)>0 or not len(hyde_embedding_chunks)>0:
-        logger.error(f"嵌入后的chunks没有导入到state！异常终止！")
-        raise ValueError("嵌入后的chunks没有导入到state！异常终止！")
+    # DevFlow 测试草稿：支持空列表降级；None 归一化尚未完成。
+    if not embedding_chunks and not hyde_embedding_chunks:
+        logger.warning("两路召回均为空，返回空融合结果。")
+        return [], []
     return embedding_chunks,hyde_embedding_chunks
 
 

@@ -1,0 +1,24 @@
+name: DevFlow Test - rrf-empty-results
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+jobs:
+  regression:
+    name: rrf-empty-results-regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      LOG_FILE_ENABLE: "false"
+      LOG_CONSOLE_ENABLE: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install isolated regression dependencies
+        run: python -m pip install "pytest>=8.3,<9" "pydantic>=2.11,<3" "loguru>=0.7.3,<0.8" "python-dotenv>=1.1,<2" "typing_extensions>=4.12,<5"
+      - name: Run rrf-empty-results regression tests
+        run: python -m pytest tests/devflow/test_rrf_empty_results.py -q --tb=short
