@@ -6,7 +6,8 @@ class QueryRequest(BaseModel):
     查询请求参数
     """
     session_id: str = Field(None, description="会话ID")
-    query: str | None = Field(..., description="原始查询")
+    # DevFlow 测试草稿：先拒绝 null 和空串；纯空白校验尚未完成。
+    query: str = Field(..., min_length=1, description="原始查询")
     is_stream: bool = Field(False, description="是否流式返回")
 
 
